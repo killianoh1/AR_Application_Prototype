@@ -20,6 +20,8 @@ public class MyARNode extends AnchorNode {
     private AugmentedImage image;
     private static CompletableFuture<ModelRenderable> modelRenderableCompletableFuture;
 
+    private float hand_scale = 0.0f;
+
     public MyARNode(Context context,int modelId)
     {
         if (modelRenderableCompletableFuture == null)
@@ -46,15 +48,17 @@ public class MyARNode extends AnchorNode {
         setAnchor(image.createAnchor(image.getCenterPose()));
 
         Node node = new Node();
-        Pose pose = Pose.makeTranslation(0.0f, -1.5f, -1.0f);
-
-
-
-
         node.setParent(this);
-        node.setLocalPosition(new Vector3(pose.tx(),pose.ty(),pose.tz()));
-        node.setLocalRotation(new Quaternion(pose.qx(),pose.qy(),pose.qz() ,pose.qw()));
         node.setRenderable(modelRenderableCompletableFuture.getNow(null));
+
+
+
+        final float maze_edge_size = 5f;
+        final float max_image_edge = Math.max(image.getExtentX(), image.getExtentZ());
+        hand_scale = max_image_edge / maze_edge_size;
+
+        // Scale Y an extra 10 times to lower the maze wall.
+        node.setLocalScale(new Vector3(hand_scale, hand_scale * 0.1f, hand_scale));
 
     }
 

@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity implements Scene.OnUpdateLis
 
     private void configureSession() {
         Config config = new Config(session);
+        config.setFocusMode(Config.FocusMode.AUTO);
+
         if (buildDatabase(config))
         {
             Toast.makeText(this, "", Toast.LENGTH_SHORT).show();

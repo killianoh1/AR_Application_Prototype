@@ -7,6 +7,10 @@
           baseColor: null,
         },
         {
+         Scale: 1,
+         },
+
+        {
           baseColorTint: [
             0.75,
             0.53000000000000003,
