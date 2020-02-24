@@ -28,16 +28,6 @@ public class MyARNode extends AnchorNode {
 
 
 
-
-
-
-
-
-
-
-
-
-
     private float hand_scale = 0.0f;
 
 
