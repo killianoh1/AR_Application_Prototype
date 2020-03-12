@@ -6,11 +6,14 @@ package com.example.arapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
     private final Map augmentedImageMap = new HashMap<>();
@@ -86,14 +90,51 @@ public class MainActivity extends AppCompatActivity  {
 
         thumb = findViewById(R.id.thumb);
 
+        thumb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewM3Activity();
+            }
+        });
+
+        middle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewM2Activity();
+            }
+        });
 
 
-
+        planetInfoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewM1Activity();
+            }
+        });
 
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
 
+    }
+
+    private void openWebViewM3Activity() {
+        Intent loginIntent = new Intent(MainActivity.this, webview_m3.class);
+        startActivity(loginIntent);
+        finish();
+    }
+
+    private void openWebViewM2Activity() {
+        Intent loginIntent = new Intent(MainActivity.this, webview_m2.class);
+        startActivity(loginIntent);
+        finish();
+    }
+
+    private void openWebViewM1Activity() {
+
+        Intent loginIntent = new Intent(MainActivity.this, webview_m1.class);
+        startActivity(loginIntent);
+        finish();
     }
 
     @Override
@@ -128,6 +169,7 @@ public class MainActivity extends AppCompatActivity  {
 
         // If there is no frame or ARCore is not tracking yet, just return.
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
+
             return;
         }
 
@@ -163,21 +205,24 @@ public class MainActivity extends AppCompatActivity  {
                         arFragment.getArSceneView().getScene().addChild(node);
 
 
-
-
-
-
-
                     }
+
+
 
                     break;
 
+
+
                 case STOPPED:
+
                     augmentedImageMap.remove(augmentedImage);
+
+
 
 
                     break;
             }
         }
+
     }
 }

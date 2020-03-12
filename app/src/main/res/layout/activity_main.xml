@@ -29,8 +29,6 @@
         android:src="@drawable/fit_to_scan" />
 
 
-
-
 </FrameLayout>
 
     <TextView
@@ -42,7 +40,7 @@
         android:padding="10dp"
 
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
         android:text="Index"
         android:textAlignment="center" />
 
@@ -55,7 +53,7 @@
         android:padding="10dp"
 
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="170dp"
+        android:layout_marginLeft="150dp"
         android:text="Middle"
         android:textAlignment="center" />
 
@@ -68,7 +66,7 @@
         android:padding="10dp"
 
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="270dp"
         android:text="Thumb"
         android:textAlignment="center" />
 

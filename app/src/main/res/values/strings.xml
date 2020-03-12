@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">AR Application</string>
     <string name="fit_image_to_scan">Fit image to scan</string>
+    <string name="pass_hint">Password....</string>
+    <string name="email_hint">Your Email....</string>
+    <string name="login_btn_text">Login</string>
+    <string name="login_reg_btn_text">Need a New Account?</string>
+    <string name="muscle_btn">Muscle</string>
+    <string name="musclesBtn">Muscle</string>
+    <string name="bonesBtn">Bone</string>
+    <string name="ligamentsBtn">Ligaments</string>
+    <string name="action_logout_text">Logout</string>
+    <string name="reg_btn_text">Create new Account</string>
+    <string name="reg_login_text">Already have an account?</string>
+    <string name="reg_password">Enter Password</string>
+    <string name="reg_confirm_pass">Confirm Password</string>
 
 </resources>

@@ -4,6 +4,7 @@
     package="com.example.arapplication">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera.ar"
@@ -18,9 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ligaments"></activity>
+        <activity android:name=".webview_m3"></activity>
+        <activity android:name=".webview_m2" />
+        <activity android:name=".webview_m1" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginAcitivity" />
+        <activity android:name=".ligaments" />
         <activity android:name=".bones" />
-        <activity android:name=".Menu">
+        <activity android:name=".MenuApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,13 +38,7 @@
             android:name="com.google.ar.core"
             android:value="required" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
