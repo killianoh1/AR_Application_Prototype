@@ -3,6 +3,7 @@ package com.example.arapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -81,13 +82,56 @@ public class bones extends AppCompatActivity {
 
         thumb = findViewById(R.id.thumb);
 
+        thumb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewB3Activity();
+            }
+        });
 
+        middle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewB2Activity();
+            }
+        });
+
+        planetInfoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewB1Activity();
+            }
+        });
 
 
 
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
+
+    }
+
+    private void openWebViewB1Activity() {
+
+        Intent loginIntent = new Intent(bones.this, webview_b3.class);
+        startActivity(loginIntent);
+        finish();
+
+    }
+
+    private void openWebViewB2Activity() {
+
+        Intent loginIntent = new Intent(bones.this, webview_b2.class);
+        startActivity(loginIntent);
+        finish();
+
+    }
+
+    private void openWebViewB3Activity() {
+
+        Intent loginIntent = new Intent(bones.this, webview_b3.class);
+        startActivity(loginIntent);
+        finish();
 
     }
 
@@ -98,16 +142,6 @@ public class bones extends AppCompatActivity {
             fitToScanView.setVisibility(View.VISIBLE);
         }
 
-        if (augmentedImageMap.isEmpty()) {
-            planetInfoCard.setVisibility(View.GONE);
-        }
-
-        if (augmentedImageMap.isEmpty()) {
-            middle.setVisibility(View.GONE);
-        }
-        if (augmentedImageMap.isEmpty()) {
-            thumb.setVisibility(View.GONE);
-        }
 
     }
 
@@ -123,6 +157,12 @@ public class bones extends AppCompatActivity {
 
         // If there is no frame or ARCore is not tracking yet, just return.
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
+
+            fitToScanView.setVisibility(View.VISIBLE);
+            planetInfoCard.setVisibility(View.INVISIBLE);
+            middle.setVisibility(View.INVISIBLE);
+            thumb.setVisibility(View.INVISIBLE);
+
             return;
         }
 
@@ -152,7 +192,7 @@ public class bones extends AppCompatActivity {
                     // Create a new anchor for newly found images.
                     if (!augmentedImageMap.containsKey(augmentedImage))
                     {
-                        MyARNode node = new MyARNode(this,R.raw.hand);
+                        MyARNode node = new MyARNode(this,R.raw.blue_bones);
                         node.setImage(augmentedImage);
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);

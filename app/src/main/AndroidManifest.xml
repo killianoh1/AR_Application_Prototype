@@ -19,7 +19,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".webview_m3"></activity>
+        <activity android:name=".webview_b3"></activity>
+        <activity android:name=".webview_b2" />
+        <activity android:name=".webview_b1" />
+        <activity android:name=".webview_m3" />
         <activity android:name=".webview_m2" />
         <activity android:name=".webview_m1" />
         <activity android:name=".RegisterActivity" />

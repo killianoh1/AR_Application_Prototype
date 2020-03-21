@@ -43,3 +43,14 @@ sceneform.asset('sampledata/hand.obj',
         'default',
         'sampledata/hand.sfa',
         'src/main/res/raw/hand')
+
+sceneform.asset('sampledata/right_hand.obj',
+        'default',
+        'sampledata/right_hand.sfa',
+        'src/main/res/raw/right_hand')
+
+
+sceneform.asset('sampledata/blue_bones.obj',
+        'default',
+        'sampledata/blue_bones.sfa',
+        'src/main/res/raw/blue_bones')

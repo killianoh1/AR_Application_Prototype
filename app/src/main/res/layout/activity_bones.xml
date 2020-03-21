@@ -39,8 +39,8 @@
         android:padding="10dp"
 
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:text="Index bone"
+        android:layout_marginLeft="10dp"
+        android:text="Index Metacarpal"
         android:textAlignment="center" />
 
     <TextView
@@ -52,8 +52,8 @@
         android:padding="10dp"
 
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="160dp"
-        android:text="Middle bone"
+        android:layout_marginLeft="150dp"
+        android:text="Middle Phalanx"
         android:textAlignment="center" />
 
     <TextView
@@ -66,7 +66,7 @@
 
         android:layout_marginTop="50dp"
         android:layout_marginLeft="280dp"
-        android:text="Thumb bone"
+        android:text="Proximal Phalanx"
         android:textAlignment="center" />
 
 

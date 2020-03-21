@@ -38,10 +38,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
+        android:visibility="invisible"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="40dp"
-        android:text="Index"
+        android:text="Americano"
         android:textAlignment="center" />
 
     <TextView
@@ -51,10 +51,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
+        android:visibility="invisible"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="150dp"
-        android:text="Middle"
+        android:layout_marginLeft="170dp"
+        android:text="Latte"
         android:textAlignment="center" />
 
     <TextView
@@ -64,10 +64,10 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
+        android:visibility="invisible"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="270dp"
-        android:text="Thumb"
+        android:text="Hot Choc"
         android:textAlignment="center" />
 
 

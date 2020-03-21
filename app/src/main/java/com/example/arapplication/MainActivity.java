@@ -24,26 +24,14 @@ import com.google.ar.core.AugmentedImageDatabase;
 import com.google.ar.core.Config;
 import com.google.ar.core.Frame;
 import com.google.ar.core.Session;
+import com.google.ar.core.Trackable;
 import com.google.ar.core.TrackingState;
-import com.google.ar.core.exceptions.CameraNotAvailableException;
-import com.google.ar.core.exceptions.UnavailableApkTooOldException;
-import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
-import com.google.ar.sceneform.ArSceneView;
+
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.ux.ArFragment;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,6 +47,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private TextView thumb;
 
+   ;
 
 
 
@@ -142,20 +131,15 @@ public class MainActivity extends AppCompatActivity  {
         super.onResume();
         if (augmentedImageMap.isEmpty()) {
             fitToScanView.setVisibility(View.VISIBLE);
+
         }
 
-        if (augmentedImageMap.isEmpty()) {
-            planetInfoCard.setVisibility(View.GONE);
-        }
 
-        if (augmentedImageMap.isEmpty()) {
-            middle.setVisibility(View.GONE);
-        }
-        if (augmentedImageMap.isEmpty()) {
-            thumb.setVisibility(View.GONE);
-        }
+
 
     }
+
+
 
 
 
@@ -170,6 +154,11 @@ public class MainActivity extends AppCompatActivity  {
         // If there is no frame or ARCore is not tracking yet, just return.
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
 
+            fitToScanView.setVisibility(View.VISIBLE);
+            planetInfoCard.setVisibility(View.INVISIBLE);
+            middle.setVisibility(View.INVISIBLE);
+            thumb.setVisibility(View.INVISIBLE);
+
             return;
         }
 
@@ -182,6 +171,8 @@ public class MainActivity extends AppCompatActivity  {
                     // but not yet tracked.
                     String text = "Detected Image " + augmentedImage.getIndex();
                     SnackbarHelper.getInstance().showMessage(this, text);
+
+
                     break;
 
                 case TRACKING:
@@ -216,6 +207,8 @@ public class MainActivity extends AppCompatActivity  {
                 case STOPPED:
 
                     augmentedImageMap.remove(augmentedImage);
+
+
 
 
 
