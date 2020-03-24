@@ -53,19 +53,9 @@ public class bones extends AppCompatActivity {
     private TextView thumb;
 
 
-
-
-
-
-
-
-
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
     private final Map augmentedImageMap = new HashMap<>();
-
-
-
 
 
     @Override
@@ -104,9 +94,7 @@ public class bones extends AppCompatActivity {
         });
 
 
-
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
-
 
 
     }
@@ -144,7 +132,6 @@ public class bones extends AppCompatActivity {
 
 
     }
-
 
 
     /**
@@ -187,20 +174,12 @@ public class bones extends AppCompatActivity {
                     thumb.setVisibility(View.VISIBLE);
 
 
-
-
                     // Create a new anchor for newly found images.
-                    if (!augmentedImageMap.containsKey(augmentedImage))
-                    {
-                        MyARNode node = new MyARNode(this,R.raw.blue_bones);
+                    if (!augmentedImageMap.containsKey(augmentedImage)) {
+                        MyARNode node = new MyARNode(this, R.raw.blue_bones);
                         node.setImage(augmentedImage);
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
-
-
-
-
-
 
 
                     }
@@ -214,5 +193,13 @@ public class bones extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent loginIntent = new Intent(bones.this, MenuApp.class);
+        startActivity(loginIntent);
+        finish();
+
     }
 }

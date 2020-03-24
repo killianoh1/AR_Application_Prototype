@@ -3,6 +3,7 @@ package com.example.arapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -81,6 +82,27 @@ public class ligaments extends AppCompatActivity {
 
         thumb = findViewById(R.id.thumb);
 
+        thumb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewL3Activity();
+            }
+        });
+
+        middle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewL2Activity();
+            }
+        });
+
+        planetInfoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWebViewL1Activity();
+            }
+        });
+
 
 
 
@@ -91,6 +113,29 @@ public class ligaments extends AppCompatActivity {
 
     }
 
+    private void openWebViewL1Activity() {
+
+        Intent loginIntent = new Intent(ligaments.this, webview_L1.class);
+        startActivity(loginIntent);
+        finish();
+
+    }
+
+    private void openWebViewL2Activity() {
+
+        Intent loginIntent = new Intent(ligaments.this, webview_L2.class);
+        startActivity(loginIntent);
+        finish();
+
+    }
+
+    private void openWebViewL3Activity() {
+
+        Intent loginIntent = new Intent(ligaments.this, webview_L3.class);
+        startActivity(loginIntent);
+        finish();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -98,16 +143,7 @@ public class ligaments extends AppCompatActivity {
             fitToScanView.setVisibility(View.VISIBLE);
         }
 
-        if (augmentedImageMap.isEmpty()) {
-            planetInfoCard.setVisibility(View.GONE);
-        }
 
-        if (augmentedImageMap.isEmpty()) {
-            middle.setVisibility(View.GONE);
-        }
-        if (augmentedImageMap.isEmpty()) {
-            thumb.setVisibility(View.GONE);
-        }
 
     }
 
@@ -123,6 +159,12 @@ public class ligaments extends AppCompatActivity {
 
         // If there is no frame or ARCore is not tracking yet, just return.
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
+
+            fitToScanView.setVisibility(View.VISIBLE);
+            planetInfoCard.setVisibility(View.INVISIBLE);
+            middle.setVisibility(View.INVISIBLE);
+            thumb.setVisibility(View.INVISIBLE);
+
             return;
         }
 
@@ -160,9 +202,6 @@ public class ligaments extends AppCompatActivity {
 
 
 
-
-
-
                     }
 
                     break;
@@ -174,6 +213,14 @@ public class ligaments extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent loginIntent = new Intent(ligaments.this, MenuApp.class);
+        startActivity(loginIntent);
+        finish();
+
     }
 }
 

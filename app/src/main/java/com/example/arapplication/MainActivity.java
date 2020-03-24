@@ -36,7 +36,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private ArFragment arFragment;
     private ImageView fitToScanView;
@@ -47,22 +47,12 @@ public class MainActivity extends AppCompatActivity  {
 
     private TextView thumb;
 
-   ;
-
-
-
-
-
-
-
+    ;
 
 
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
     private final Map augmentedImageMap = new HashMap<>();
-
-
-
 
 
     @Override
@@ -104,7 +94,6 @@ public class MainActivity extends AppCompatActivity  {
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
-
     }
 
     private void openWebViewM3Activity() {
@@ -135,12 +124,7 @@ public class MainActivity extends AppCompatActivity  {
         }
 
 
-
-
     }
-
-
-
 
 
     /**
@@ -185,12 +169,9 @@ public class MainActivity extends AppCompatActivity  {
                     thumb.setVisibility(View.VISIBLE);
 
 
-
-
                     // Create a new anchor for newly found images.
-                    if (!augmentedImageMap.containsKey(augmentedImage))
-                    {
-                        MyARNode node = new MyARNode(this,R.raw.hand);
+                    if (!augmentedImageMap.containsKey(augmentedImage)) {
+                        MyARNode node = new MyARNode(this, R.raw.hand);
                         node.setImage(augmentedImage);
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
@@ -199,9 +180,7 @@ public class MainActivity extends AppCompatActivity  {
                     }
 
 
-
                     break;
-
 
 
                 case STOPPED:
@@ -209,13 +188,17 @@ public class MainActivity extends AppCompatActivity  {
                     augmentedImageMap.remove(augmentedImage);
 
 
-
-
-
-
                     break;
             }
         }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent loginIntent = new Intent(MainActivity.this, MenuApp.class);
+        startActivity(loginIntent);
+        finish();
 
     }
 }

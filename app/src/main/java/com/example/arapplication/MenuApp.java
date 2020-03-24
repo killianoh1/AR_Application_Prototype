@@ -33,7 +33,7 @@ public class MenuApp extends AppCompatActivity {
         mainToolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mainToolbar);
 
-        getSupportActionBar().setTitle("ARAnatomy");
+        getSupportActionBar().setTitle("Anatomy Insight");
 
 
 
