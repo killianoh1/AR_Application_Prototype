@@ -12,10 +12,13 @@ import android.widget.Button;
 import androidx.appcompat.widget.Toolbar;
 
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MenuApp extends AppCompatActivity {
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     private Button buttonM,buttonB,buttonL;
     private FirebaseAuth mAuth;
@@ -29,6 +32,7 @@ public class MenuApp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         mainToolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mainToolbar);
@@ -43,6 +47,12 @@ public class MenuApp extends AppCompatActivity {
         buttonM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "muscleBtn" );
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscle");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                 openMainActivity();
             }
         });
@@ -51,6 +61,12 @@ public class MenuApp extends AppCompatActivity {
         buttonB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "bonesBtn" );
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                 openBonesActivity();
             }
         });
@@ -59,6 +75,12 @@ public class MenuApp extends AppCompatActivity {
         buttonL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "ligamentsBtn" );
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Ligaments");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                 openLigamentsActivity();
             }
         });
@@ -121,21 +143,21 @@ public class MenuApp extends AppCompatActivity {
 
 
     public void openLigamentsActivity(){
-        Intent intent = new Intent(this, ligaments.class);
+        Intent intent = new Intent(this, Ligaments.class);
         startActivity(intent);
         finish();
 
     }
 
     public void openBonesActivity(){
-        Intent intent =  new Intent(this, bones.class);
+        Intent intent =  new Intent(this, Bones.class);
         startActivity(intent);
         finish();
 
     }
 
     public void openMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Muscle.class);
         startActivity(intent);
         finish();
     }

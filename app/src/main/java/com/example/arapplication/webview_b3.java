@@ -25,7 +25,7 @@ public class webview_b3 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent loginIntent = new Intent(webview_b3.this, bones.class);
+        Intent loginIntent = new Intent(webview_b3.this, Bones.class);
         startActivity(loginIntent);
         finish();
 

@@ -24,7 +24,7 @@ public class webview_m3 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent loginIntent = new Intent(webview_m3.this, MainActivity.class);
+        Intent loginIntent = new Intent(webview_m3.this, Muscle.class);
         startActivity(loginIntent);
         finish();
 

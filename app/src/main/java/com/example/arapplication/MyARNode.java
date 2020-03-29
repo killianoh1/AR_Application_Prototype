@@ -11,10 +11,12 @@ import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Pose;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Node;
+import com.google.ar.sceneform.lullmodel.Color;
 import com.google.ar.sceneform.math.Quaternion;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.rendering.ViewRenderable;
+
 
 import java.util.concurrent.CompletableFuture;
 
@@ -40,6 +42,10 @@ public class MyARNode extends AnchorNode {
                     .setRegistryId("my_model")
                     .setSource(context, modelId)
                     .build();
+
+
+
+
 
             //MyARNode infoCard = new MyARNode(context,R.id.planetInfoCard);
             //infoCard.setParent(this);
@@ -87,6 +93,8 @@ public class MyARNode extends AnchorNode {
         Node node = new Node();
         node.setParent(this);
         node.setRenderable(modelRenderableCompletableFuture.getNow(null));
+
+
 
 
 

@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginAcitivity extends AppCompatActivity {
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     private EditText loginEmailText;
@@ -34,6 +37,8 @@ public class LoginAcitivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_acitivity);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -61,6 +66,8 @@ public class LoginAcitivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 String loginEmail = loginEmailText.getText().toString();
                 String loginPass = loginPassText.getText().toString();
 
@@ -74,6 +81,11 @@ public class LoginAcitivity extends AppCompatActivity {
 
 
                             if (task.isSuccessful()) {
+
+                                Bundle params = new Bundle();
+                                params.putString(FirebaseAnalytics.Param.METHOD, "email");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
+
 
                                 sendToMain();
 

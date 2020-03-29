@@ -2,51 +2,29 @@ package com.example.arapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.arapplication.common.helpers.SnackbarHelper;
 import com.google.ar.core.AugmentedImage;
-import com.google.ar.core.AugmentedImageDatabase;
-import com.google.ar.core.Config;
 import com.google.ar.core.Frame;
-import com.google.ar.core.Session;
 import com.google.ar.core.TrackingState;
-import com.google.ar.core.exceptions.CameraNotAvailableException;
-import com.google.ar.core.exceptions.UnavailableApkTooOldException;
-import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
-import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.FrameTime;
-import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.ux.ArFragment;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class bones extends AppCompatActivity {
+public class Bones extends AppCompatActivity {
 
     private ArFragment arFragment;
     private ImageView fitToScanView;
 
-    private TextView planetInfoCard;
+    private TextView index;
 
     private TextView middle;
 
@@ -66,7 +44,7 @@ public class bones extends AppCompatActivity {
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
-        planetInfoCard = findViewById(R.id.planetInfoCard);
+        index = findViewById(R.id.index);
 
         middle = findViewById(R.id.middle);
 
@@ -86,7 +64,7 @@ public class bones extends AppCompatActivity {
             }
         });
 
-        planetInfoCard.setOnClickListener(new View.OnClickListener() {
+        index.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openWebViewB1Activity();
@@ -101,7 +79,7 @@ public class bones extends AppCompatActivity {
 
     private void openWebViewB1Activity() {
 
-        Intent loginIntent = new Intent(bones.this, webview_b3.class);
+        Intent loginIntent = new Intent(Bones.this, webview_b3.class);
         startActivity(loginIntent);
         finish();
 
@@ -109,7 +87,7 @@ public class bones extends AppCompatActivity {
 
     private void openWebViewB2Activity() {
 
-        Intent loginIntent = new Intent(bones.this, webview_b2.class);
+        Intent loginIntent = new Intent(Bones.this, webview_b2.class);
         startActivity(loginIntent);
         finish();
 
@@ -117,7 +95,7 @@ public class bones extends AppCompatActivity {
 
     private void openWebViewB3Activity() {
 
-        Intent loginIntent = new Intent(bones.this, webview_b3.class);
+        Intent loginIntent = new Intent(Bones.this, webview_b3.class);
         startActivity(loginIntent);
         finish();
 
@@ -146,7 +124,7 @@ public class bones extends AppCompatActivity {
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
 
             fitToScanView.setVisibility(View.VISIBLE);
-            planetInfoCard.setVisibility(View.INVISIBLE);
+            index.setVisibility(View.INVISIBLE);
             middle.setVisibility(View.INVISIBLE);
             thumb.setVisibility(View.INVISIBLE);
 
@@ -169,7 +147,7 @@ public class bones extends AppCompatActivity {
                     fitToScanView.setVisibility(View.GONE);
 
 
-                    planetInfoCard.setVisibility(View.VISIBLE);
+                    index.setVisibility(View.VISIBLE);
                     middle.setVisibility(View.VISIBLE);
                     thumb.setVisibility(View.VISIBLE);
 
@@ -197,7 +175,7 @@ public class bones extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent loginIntent = new Intent(bones.this, MenuApp.class);
+        Intent loginIntent = new Intent(Bones.this, MenuApp.class);
         startActivity(loginIntent);
         finish();
 
