@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".webview_L3"></activity>
+        <activity android:name=".accountSetup"></activity>
+        <activity android:name=".webview_L3" />
         <activity android:name=".webview_L2" />
         <activity android:name=".webview_L1" />
         <activity android:name=".webview_b3" />

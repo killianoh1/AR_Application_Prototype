@@ -118,28 +118,20 @@ public class MenuApp extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.action_logout_btn:
-                logOut();
+            case R.id.sendAccount:
+                openAccount();
                 return true;
 
             default:
                 return false;
+
+
         }
-    }
-
-    private void logOut() {
-
-        mAuth.signOut();
-        sendToLogin();
-    }
-
-    private void sendToLogin() {
-
-        Intent loginIntent = new Intent(MenuApp.this, LoginAcitivity.class);
-        startActivity(loginIntent);
-        finish();
 
     }
+
+
+    
 
 
     public void openLigamentsActivity(){
@@ -156,10 +148,18 @@ public class MenuApp extends AppCompatActivity {
 
     }
 
+
     public void openMainActivity(){
         Intent intent = new Intent(this, Muscle.class);
         startActivity(intent);
         finish();
+    }
+
+    private void openAccount(){
+        Intent intent = new Intent(this, accountSetup.class);
+        startActivity(intent);
+        finish();
+
     }
 
 

@@ -14,7 +14,8 @@
     <string name="reg_login_text">Already have an account?</string>
     <string name="reg_password">Enter Password</string>
     <string name="reg_confirm_pass">Confirm Password</string>
-
+    <string name="sendAccount">Account</string>
+    <string name="accountToMenu">Menu</string>
 
 
 </resources>
