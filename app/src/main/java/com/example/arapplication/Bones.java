@@ -13,6 +13,8 @@ import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Frame;
 import com.google.ar.core.TrackingState;
 import com.google.ar.sceneform.FrameTime;
+import com.google.ar.sceneform.rendering.Color;
+import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
 
 import java.util.Collection;
@@ -117,7 +119,7 @@ public class Bones extends AppCompatActivity {
      *
      * @param frameTime - time since last frame.
      */
-    private void onUpdateFrame(FrameTime frameTime) {
+    public void onUpdateFrame(FrameTime frameTime) {
         Frame frame = arFragment.getArSceneView().getArFrame();
 
         // If there is no frame or ARCore is not tracking yet, just return.
@@ -156,6 +158,7 @@ public class Bones extends AppCompatActivity {
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
                         MyARNode node = new MyARNode(this, R.raw.blue_bones);
                         node.setImage(augmentedImage);
+                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,245,244)).build());
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 
@@ -178,6 +181,8 @@ public class Bones extends AppCompatActivity {
         Intent loginIntent = new Intent(Bones.this, MenuApp.class);
         startActivity(loginIntent);
         finish();
+
+        super.onBackPressed();
 
     }
 }

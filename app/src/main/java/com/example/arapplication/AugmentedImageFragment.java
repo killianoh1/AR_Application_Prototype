@@ -32,6 +32,7 @@ public class AugmentedImageFragment extends ArFragment {
     private static final String DEFAULT_IMAGE_NAME = "hand_poly.jpg";
 
 
+
     // This is a pre-created database containing the sample image.
     private static final String SAMPLE_IMAGE_DATABASE = "sample_database.imgdb";
 
@@ -115,6 +116,7 @@ public class AugmentedImageFragment extends ArFragment {
             augmentedImageDatabase = new AugmentedImageDatabase(session);
             augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmap);
 
+
             // If the physical size of the image is known, you can instead use:
             //     augmentedImageDatabase.addImage("image_name", augmentedImageBitmap, widthInMeters);
             // This will improve the initial detection speed. ARCore will still actively estimate the
@@ -141,6 +143,8 @@ public class AugmentedImageFragment extends ArFragment {
             Log.e(TAG, "IO exception loading augmented image bitmap.", e);
         }
         return null;
+
+
     }
 
 }

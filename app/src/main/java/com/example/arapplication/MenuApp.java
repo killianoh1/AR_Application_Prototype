@@ -12,6 +12,7 @@ import android.widget.Button;
 import androidx.appcompat.widget.Toolbar;
 
 
+import com.google.ar.sceneform.FrameTime;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +45,9 @@ public class MenuApp extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         buttonM = (Button)findViewById(R.id.musclesBtn);
+
+
+
         buttonM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +70,7 @@ public class MenuApp extends AppCompatActivity {
                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones");
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
 
                 openBonesActivity();
             }
@@ -104,6 +109,8 @@ public class MenuApp extends AppCompatActivity {
         }
 
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -131,29 +138,37 @@ public class MenuApp extends AppCompatActivity {
     }
 
 
-    
 
 
-    public void openLigamentsActivity(){
-        Intent intent = new Intent(this, Ligaments.class);
-        startActivity(intent);
-        finish();
+        public void openLigamentsActivity () {
+            Intent intent = new Intent(this, Ligaments.class);
+            startActivity(intent);
+            finish();
 
-    }
+        }
 
-    public void openBonesActivity(){
-        Intent intent =  new Intent(this, Bones.class);
-        startActivity(intent);
-        finish();
+        public void openBonesActivity () {
+            Intent intent = new Intent(this, Bones.class);
 
-    }
+            startActivity(intent);
+
+            finish();
 
 
-    public void openMainActivity(){
-        Intent intent = new Intent(this, Muscle.class);
-        startActivity(intent);
-        finish();
-    }
+        }
+
+
+        public void openMainActivity () {
+            Intent intent = new Intent(this, Muscle.class);
+
+            startActivity(intent);
+            finish();
+
+
+
+        }
+
+
 
     private void openAccount(){
         Intent intent = new Intent(this, accountSetup.class);
@@ -162,6 +177,30 @@ public class MenuApp extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+        //finish();
+        //startActivity(getIntent());
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
 
 
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        //Intent previewMessage = new Intent(StampiiStore.this, StampiiStore.class);
+
+
+    }
 }

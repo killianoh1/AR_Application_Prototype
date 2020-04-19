@@ -68,7 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()){
 
-                                    sendToMain();
+                                    Intent setupIntent = new Intent(RegisterActivity.this, accountSetup.class);
+                                    startActivity(setupIntent);
+                                    finish();
 
                                 } else {
 

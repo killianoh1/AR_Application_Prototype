@@ -31,21 +31,23 @@
         <activity android:name=".webview_m1" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginAcitivity" />
-        <activity android:name=".Ligaments" />
-        <activity android:name=".Bones" />
+        <activity android:name=".Ligaments" android:parentActivityName=".MenuApp"/>
+        <activity android:name=".Bones" android:parentActivityName=".MenuApp"/>
         <activity android:name=".MenuApp">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />
 
-        <activity android:name=".Muscle" />
+        <activity android:name=".Muscle" android:parentActivityName=".MenuApp"/>
     </application>
 
 </manifest>

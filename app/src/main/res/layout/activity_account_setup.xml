@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="20dp"
     tools:context=".accountSetup">
 
 
@@ -16,6 +18,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/setup_Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/whiteTransparentHalf"
+        android:ems="10"
+        android:hint="@string/name_hint"
+        android:inputType="textPersonName"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textColorHint="@color/whiteTransparentHalf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+
+    <EditText
+        android:id="@+id/setup_School"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/whiteTransparentHalf"
+        android:ems="10"
+        android:hint="@string/setup_School"
+        android:inputType="textPersonName"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textColorHint="@color/whiteTransparentHalf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setup_Name" />
+
+    <EditText
+        android:id="@+id/setup_School_Year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/whiteTransparentHalf"
+        android:ems="10"
+        android:hint="@string/setup_School_Year"
+        android:inputType="textPersonName"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textColorHint="@color/whiteTransparentHalf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setup_School" />
+
+    <Button
+        android:id="@+id/setup_Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@color/colorAccent"
+        android:padding="15dp"
+        android:text="@string/setup_Button"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setup_School_Year" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

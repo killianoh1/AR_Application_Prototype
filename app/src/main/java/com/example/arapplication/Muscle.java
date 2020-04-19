@@ -18,6 +18,8 @@ import com.google.ar.core.Frame;
 import com.google.ar.core.TrackingState;
 
 import com.google.ar.sceneform.FrameTime;
+import com.google.ar.sceneform.rendering.Color;
+import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
 
 import java.util.Collection;
@@ -161,6 +163,7 @@ public class Muscle extends AppCompatActivity {
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
                         MyARNode node = new MyARNode(this, R.raw.hand);
                         node.setImage(augmentedImage);
+                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,255,244)).build());
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 
@@ -185,8 +188,15 @@ public class Muscle extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent loginIntent = new Intent(Muscle.this, MenuApp.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
+        //startActivityForResult(loginIntent,1);
         finish();
 
+        super.onBackPressed();
+
     }
+
+
 }

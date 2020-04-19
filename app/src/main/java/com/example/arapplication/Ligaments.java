@@ -198,6 +198,7 @@ public class Ligaments extends AppCompatActivity {
         Intent loginIntent = new Intent(Ligaments.this, MenuApp.class);
         startActivity(loginIntent);
         finish();
+        super.onBackPressed();
 
     }
 }

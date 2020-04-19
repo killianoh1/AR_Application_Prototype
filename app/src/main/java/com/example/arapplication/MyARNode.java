@@ -14,7 +14,11 @@ import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.lullmodel.Color;
 import com.google.ar.sceneform.math.Quaternion;
 import com.google.ar.sceneform.math.Vector3;
+import com.google.ar.sceneform.rendering.Light;
+import com.google.ar.sceneform.rendering.Material;
+import com.google.ar.sceneform.rendering.MaterialFactory;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.rendering.ViewRenderable;
 
 
@@ -38,6 +42,8 @@ public class MyARNode extends AnchorNode {
     {
 
         if (modelRenderableCompletableFuture == null) {
+
+
             modelRenderableCompletableFuture = ModelRenderable.builder()
                     .setRegistryId("my_model")
                     .setSource(context, modelId)
@@ -47,22 +53,8 @@ public class MyARNode extends AnchorNode {
 
 
 
-            //MyARNode infoCard = new MyARNode(context,R.id.planetInfoCard);
-            //infoCard.setParent(this);
-            //infoCard.setLocalPosition(new Vector3(0.15f, 0.1f, 0.0f));
 
-            /*Node infoCard = new Node();
-            infoCard.setParent(this);
-            infoCard.setEnabled(false);
 
-            infoCard.setLocalPosition(new Vector3(0f, hand_scale * 0.1f, 0.0f));
-
-            ViewRenderable.builder()
-                    .setView(context, R.id.planetInfoCard)
-                    .build()
-                    .thenAccept(renderable -> {
-                        infoCard.setRenderable(renderable);
-                    });*/
 
 
         }
@@ -103,20 +95,22 @@ public class MyARNode extends AnchorNode {
 
 
 
-
-
-
-
-
-
         final float maze_edge_size = 5f;
         final float max_image_edge = Math.max(image.getExtentX(), image.getExtentZ());
         hand_scale = max_image_edge / maze_edge_size;
+
 
         // Scale Y an extra 10 times to lower the maze wall.
         node.setLocalScale(new Vector3(hand_scale, hand_scale * 0.1f, hand_scale));
 
     }
+
+
+
+
+
+
+
 
     public AugmentedImage getImage() {
         return image;
