@@ -32,7 +32,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginAcitivity" />
         <activity android:name=".Ligaments" android:parentActivityName=".MenuApp"/>
-        <activity android:name=".Bones" android:parentActivityName=".MenuApp"/>
+        <activity android:name=".Bones" android:parentActivityName=".MenuApp"></activity>
         <activity android:name=".MenuApp">
 
             <intent-filter>

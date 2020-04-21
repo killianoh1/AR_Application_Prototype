@@ -4,6 +4,7 @@ package com.example.arapplication;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Muscle extends AppCompatActivity {
+
+    private Toolbar mainToolbar;
 
     private ArFragment arFragment;
     private ImageView fitToScanView;
@@ -54,6 +57,12 @@ public class Muscle extends AppCompatActivity {
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
         Index = findViewById(R.id.index);
+
+        mainToolbar = findViewById(R.id.main_toolbar);
+
+        setSupportActionBar(mainToolbar);
+
+        getSupportActionBar().setTitle("Anatomy Insight - Muscle");
 
         middle = findViewById(R.id.middle);
 

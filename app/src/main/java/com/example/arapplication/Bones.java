@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.arapplication.common.helpers.SnackbarHelper;
 import com.google.ar.core.AugmentedImage;
@@ -23,6 +25,8 @@ import java.util.Map;
 
 public class Bones extends AppCompatActivity {
 
+
+    private Toolbar mainToolbar;
     private ArFragment arFragment;
     private ImageView fitToScanView;
 
@@ -31,6 +35,7 @@ public class Bones extends AppCompatActivity {
     private TextView middle;
 
     private TextView thumb;
+
 
 
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
@@ -47,6 +52,13 @@ public class Bones extends AppCompatActivity {
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
         index = findViewById(R.id.index);
+
+        mainToolbar = findViewById(R.id.main_toolbar);
+
+        setSupportActionBar(mainToolbar);
+
+        getSupportActionBar().setTitle("Anatomy Insight - Bones");
+
 
         middle = findViewById(R.id.middle);
 
@@ -78,6 +90,10 @@ public class Bones extends AppCompatActivity {
 
 
     }
+
+
+
+
 
     private void openWebViewB1Activity() {
 
@@ -156,7 +172,7 @@ public class Bones extends AppCompatActivity {
 
                     // Create a new anchor for newly found images.
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
-                        MyARNode node = new MyARNode(this, R.raw.blue_bones);
+                        MyARNodeB node = new MyARNodeB(this, R.raw.blue_bones);
                         node.setImage(augmentedImage);
                         node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,245,244)).build());
                         augmentedImageMap.put(augmentedImage, node);

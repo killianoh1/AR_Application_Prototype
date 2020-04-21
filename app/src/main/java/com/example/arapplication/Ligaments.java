@@ -1,6 +1,7 @@
 package com.example.arapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Frame;
 import com.google.ar.core.TrackingState;
 import com.google.ar.sceneform.FrameTime;
+import com.google.ar.sceneform.rendering.Color;
+import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
 
 import java.util.Collection;
@@ -29,6 +32,7 @@ public class Ligaments extends AppCompatActivity {
     private TextView middle;
 
     private TextView thumb;
+    private Toolbar mainToolbar;
 
 
 
@@ -59,6 +63,13 @@ public class Ligaments extends AppCompatActivity {
         middle = findViewById(R.id.middle);
 
         thumb = findViewById(R.id.thumb);
+
+        mainToolbar = findViewById(R.id.main_toolbar);
+
+        setSupportActionBar(mainToolbar);
+
+        getSupportActionBar().setTitle("Anatomy Insight - Ligaments");
+
 
         thumb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,8 +183,9 @@ public class Ligaments extends AppCompatActivity {
                     // Create a new anchor for newly found images.
                     if (!augmentedImageMap.containsKey(augmentedImage))
                     {
-                        MyARNode node = new MyARNode(this,R.raw.hand);
+                        MyARNodeL node = new MyARNodeL(this,R.raw.hand);
                         node.setImage(augmentedImage);
+                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(108,246,218)).build());
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 
