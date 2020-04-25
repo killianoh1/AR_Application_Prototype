@@ -3,6 +3,8 @@ package com.example.arapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.ParseException;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,14 +16,23 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import java.sql.Timestamp;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LoginAcitivity extends AppCompatActivity {
 
+
+
+
     private FirebaseAnalytics mFirebaseAnalytics;
+
+    private String dateAndTime;
 
 
     private EditText loginEmailText;
@@ -82,8 +93,19 @@ public class LoginAcitivity extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
 
+
+
+                                Date date = new Date();
+
+
+
+                                long time = date.getTime();
+
+                                Timestamp timestamp = new Timestamp(time);
+
                                 Bundle params = new Bundle();
                                 params.putString(FirebaseAnalytics.Param.METHOD, "email");
+                                params.putString("timestamp", timestamp.toString());
                                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
 
 
@@ -107,6 +129,10 @@ public class LoginAcitivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
 
 
     @Override

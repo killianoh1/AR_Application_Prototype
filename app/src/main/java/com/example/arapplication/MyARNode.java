@@ -31,9 +31,6 @@ public class MyARNode extends AnchorNode {
 
 
 
-
-
-
     private float hand_scale = 0.0f;
 
 
@@ -48,11 +45,6 @@ public class MyARNode extends AnchorNode {
                     .setRegistryId("my_model")
                     .setSource(context, modelId)
                     .build();
-
-
-
-
-
 
 
 
@@ -89,12 +81,6 @@ public class MyARNode extends AnchorNode {
 
 
 
-
-
-
-
-
-
         final float maze_edge_size = 5f;
         final float max_image_edge = Math.max(image.getExtentX(), image.getExtentZ());
         hand_scale = max_image_edge / maze_edge_size;
@@ -104,9 +90,6 @@ public class MyARNode extends AnchorNode {
         node.setLocalScale(new Vector3(hand_scale, hand_scale * 0.1f, hand_scale));
 
     }
-
-
-
 
 
 

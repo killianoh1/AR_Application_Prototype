@@ -2,23 +2,42 @@ package com.example.arapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.view.PixelCopy;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arapplication.common.helpers.SnackbarHelper;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Frame;
 import com.google.ar.core.TrackingState;
+import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,17 +46,14 @@ public class Ligaments extends AppCompatActivity {
     private ArFragment arFragment;
     private ImageView fitToScanView;
 
-    private TextView planetInfoCard;
+    private TextView index;
 
     private TextView middle;
 
     private TextView thumb;
     private Toolbar mainToolbar;
 
-
-
-
-
+    private FloatingActionButton fab;
 
 
 
@@ -58,7 +74,7 @@ public class Ligaments extends AppCompatActivity {
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
-        planetInfoCard = findViewById(R.id.index);
+        index = findViewById(R.id.index);
 
         middle = findViewById(R.id.middle);
 
@@ -69,6 +85,17 @@ public class Ligaments extends AppCompatActivity {
         setSupportActionBar(mainToolbar);
 
         getSupportActionBar().setTitle("Anatomy Insight - Ligaments");
+
+
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                takePhoto();
+
+            }
+        });
 
 
         thumb.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +112,7 @@ public class Ligaments extends AppCompatActivity {
             }
         });
 
-        planetInfoCard.setOnClickListener(new View.OnClickListener() {
+        index.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openWebViewL1Activity();
@@ -101,6 +128,80 @@ public class Ligaments extends AppCompatActivity {
 
 
     }
+
+
+    private String generateFilename() {
+        String date = new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
+    }
+
+
+    private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
+
+        File out = new File(filename);
+        if (!out.getParentFile().exists()) {
+            out.getParentFile().mkdirs();
+        }
+        try (FileOutputStream outputStream = new FileOutputStream(filename);
+             ByteArrayOutputStream outputData = new ByteArrayOutputStream()) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputData);
+            outputData.writeTo(outputStream);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException ex) {
+            throw new IOException("Failed to save bitmap to disk", ex);
+        }
+    }
+
+
+    private void takePhoto() {
+        final String filename = generateFilename();
+        ArSceneView view = arFragment.getArSceneView();
+
+
+        // Create a bitmap the size of the scene view.
+        final Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+                Bitmap.Config.ARGB_8888);
+
+        // Create a handler thread to offload the processing of the image.
+        final HandlerThread handlerThread = new HandlerThread("PixelCopier");
+        handlerThread.start();
+        // Make the request to copy.
+        PixelCopy.request(view, bitmap, (copyResult) -> {
+            if (copyResult == PixelCopy.SUCCESS) {
+                try {
+                    saveBitmapToDisk(bitmap, filename);
+                } catch (IOException e) {
+                    Toast toast = Toast.makeText(Ligaments.this, e.toString(),
+                            Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                        "Photo saved", Snackbar.LENGTH_LONG);
+                snackbar.setAction("Open in Photos", v -> {
+                    File photoFile = new File(filename);
+
+                    Uri photoURI = FileProvider.getUriForFile(Ligaments.this,
+                            Ligaments.this.getPackageName() + ".ar.codelab.name.provider",
+                            photoFile);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, photoURI);
+                    intent.setDataAndType(photoURI, "image/*");
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(intent);
+
+                });
+                snackbar.show();
+            } else {
+                Toast toast = Toast.makeText(Ligaments.this,
+                        "Failed to copyPixels: " + copyResult, Toast.LENGTH_LONG);
+                toast.show();
+            }
+            handlerThread.quitSafely();
+        }, new Handler(handlerThread.getLooper()));
+    }
+
+
 
     private void openWebViewL1Activity() {
 
@@ -143,6 +244,7 @@ public class Ligaments extends AppCompatActivity {
      *
      * @param frameTime - time since last frame.
      */
+    @SuppressLint("RestrictedApi")
     private void onUpdateFrame(FrameTime frameTime) {
         Frame frame = arFragment.getArSceneView().getArFrame();
 
@@ -150,9 +252,10 @@ public class Ligaments extends AppCompatActivity {
         if (frame == null || frame.getCamera().getTrackingState() != TrackingState.TRACKING) {
 
             fitToScanView.setVisibility(View.VISIBLE);
-            planetInfoCard.setVisibility(View.INVISIBLE);
+            index.setVisibility(View.INVISIBLE);
             middle.setVisibility(View.INVISIBLE);
             thumb.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.INVISIBLE);
 
             return;
         }
@@ -173,9 +276,10 @@ public class Ligaments extends AppCompatActivity {
                     fitToScanView.setVisibility(View.GONE);
 
 
-                    planetInfoCard.setVisibility(View.VISIBLE);
+                    index.setVisibility(View.VISIBLE);
                     middle.setVisibility(View.VISIBLE);
                     thumb.setVisibility(View.VISIBLE);
+                    fab.setVisibility(View.VISIBLE);
 
 
 
