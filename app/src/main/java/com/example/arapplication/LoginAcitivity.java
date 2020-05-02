@@ -77,8 +77,6 @@ public class LoginAcitivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 String loginEmail = loginEmailText.getText().toString();
                 String loginPass = loginPassText.getText().toString();
 
@@ -93,11 +91,7 @@ public class LoginAcitivity extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
 
-
-
                                 Date date = new Date();
-
-
 
                                 long time = date.getTime();
 
@@ -108,7 +102,7 @@ public class LoginAcitivity extends AppCompatActivity {
                                 params.putString("timestamp", timestamp.toString());
                                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
 
-
+                                Toast.makeText(LoginAcitivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                                 sendToMain();
 
                             } else {
@@ -124,6 +118,8 @@ public class LoginAcitivity extends AppCompatActivity {
                     });
 
 
+                }else{
+                    Toast.makeText(LoginAcitivity.this, "Enter all fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });

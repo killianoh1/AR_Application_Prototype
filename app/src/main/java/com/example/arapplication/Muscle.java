@@ -22,6 +22,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.view.PixelCopy;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Environment;
@@ -39,6 +40,8 @@ import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.Light;
+import com.google.ar.sceneform.rendering.Material;
+import com.google.ar.sceneform.rendering.MaterialFactory;
 import com.google.ar.sceneform.ux.ArFragment;
 
 import androidx.core.content.FileProvider;
@@ -46,6 +49,7 @@ import androidx.core.content.FileProvider;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class Muscle extends AppCompatActivity {
 
@@ -64,6 +68,7 @@ public class Muscle extends AppCompatActivity {
 
     private FloatingActionButton fab;
 
+
     ;
 
 
@@ -81,7 +86,6 @@ public class Muscle extends AppCompatActivity {
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
         Index = findViewById(R.id.index);
-
 
 
 
@@ -137,8 +141,10 @@ public class Muscle extends AppCompatActivity {
     }
 
     private String generateFilename() {
-        String date = new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
+        String date =
+                new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
+        return Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
 
 
@@ -212,12 +218,16 @@ public class Muscle extends AppCompatActivity {
         Intent loginIntent = new Intent(Muscle.this, webview_m3.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
     private void openWebViewM2Activity() {
         Intent loginIntent = new Intent(Muscle.this, webview_m2.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
     private void openWebViewM1Activity() {
@@ -225,6 +235,8 @@ public class Muscle extends AppCompatActivity {
         Intent loginIntent = new Intent(Muscle.this, webview_m1.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -288,7 +300,8 @@ public class Muscle extends AppCompatActivity {
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
                         MyARNode node = new MyARNode(this, R.raw.hand);
                         node.setImage(augmentedImage);
-                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,255,244)).build());
+                        node.setLight(Light.builder(Light.Type.FOCUSED_SPOTLIGHT).setColor(new Color(0,0,255)).setShadowCastingEnabled(true).build());
+
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 
@@ -313,10 +326,8 @@ public class Muscle extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent loginIntent = new Intent(Muscle.this, MenuApp.class);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
-        //startActivityForResult(loginIntent,1);
+
         finish();
 
         super.onBackPressed();

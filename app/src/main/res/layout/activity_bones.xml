@@ -43,46 +43,49 @@
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.Toolbar>
 
 
-
-
     <TextView
         android:id="@+id/index"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:text="Index Metacarpal"
-        android:textAlignment="center" />
+        android:text="@string/index_B_text"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
+
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="150dp"
-        android:text="Middle Phalanx"
-        android:textAlignment="center" />
+        android:text="@string/middle_B_text"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/thumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
+
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="280dp"
-        android:text="Proximal Phalanx"
-        android:textAlignment="center" />
+        android:text="@string/thumb_B_text"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

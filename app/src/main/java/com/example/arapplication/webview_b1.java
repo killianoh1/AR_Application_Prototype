@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class webview_b1 extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class webview_b1 extends AppCompatActivity {
         Intent loginIntent = new Intent(webview_b1.this, Bones.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(webview_b1.this, "Returned to camera view", Toast.LENGTH_LONG).show();
 
     }
 }

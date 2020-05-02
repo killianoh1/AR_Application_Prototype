@@ -23,6 +23,13 @@ import com.google.ar.sceneform.ux.ArFragment;
 import java.io.IOException;
 import java.io.InputStream;
 
+/** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
+
 public class AugmentedImageFragment extends ArFragment {
     private static final String TAG = "AugmentedImageFragment";
 
@@ -43,6 +50,13 @@ public class AugmentedImageFragment extends ArFragment {
     // Do a runtime check for the OpenGL level available at runtime to avoid Sceneform crashing the
     // application.
     private static final double MIN_OPENGL_VERSION = 3.0;
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     @Override
     public void onAttach(Context context) {
@@ -67,6 +81,13 @@ public class AugmentedImageFragment extends ArFragment {
         }
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,6 +99,13 @@ public class AugmentedImageFragment extends ArFragment {
         getArSceneView().getPlaneRenderer().setEnabled(false);
         return view;
     }
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     @Override
     protected Config getSessionConfiguration(Session session) {
@@ -92,6 +120,13 @@ public class AugmentedImageFragment extends ArFragment {
         return config;
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     private boolean setupAugmentedImageDatabase(Config config, Session session) {
         AugmentedImageDatabase augmentedImageDatabase;
 
@@ -100,6 +135,12 @@ public class AugmentedImageFragment extends ArFragment {
             Log.e(TAG, "Context is null, cannot intitialize image database.");
             return false;
         }
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         // There are two ways to configure an AugmentedImageDatabase:
         // 1. Add Bitmap to DB directly
@@ -136,6 +177,13 @@ public class AugmentedImageFragment extends ArFragment {
         return true;
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     private Bitmap loadAugmentedImageBitmap(AssetManager assetManager) {
         try (InputStream is = assetManager.open(DEFAULT_IMAGE_NAME)) {
             return BitmapFactory.decodeStream(is);
@@ -143,7 +191,6 @@ public class AugmentedImageFragment extends ArFragment {
             Log.e(TAG, "IO exception loading augmented image bitmap.", e);
         }
         return null;
-
 
     }
 

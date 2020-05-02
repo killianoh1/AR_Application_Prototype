@@ -39,7 +39,7 @@ dependencies {
 
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
     implementation 'com.karumi:dexter:5.0.0'
-    //compile 'com.android.support:support-v4:26.1.0'
+
 }
 
 
@@ -58,3 +58,7 @@ sceneform.asset('sampledata/blue_bones.obj',
         'default',
         'sampledata/blue_bones.sfa',
         'src/main/res/raw/blue_bones')
+
+
+
+

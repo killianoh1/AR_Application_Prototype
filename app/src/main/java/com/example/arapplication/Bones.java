@@ -52,6 +52,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
+
 public class Bones extends AppCompatActivity {
 
 
@@ -134,8 +141,10 @@ public class Bones extends AppCompatActivity {
 
 
     private String generateFilename() {
-        String date = new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
+        String date =
+                new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
+        return Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
 
 
@@ -218,6 +227,8 @@ public class Bones extends AppCompatActivity {
         startActivity(loginIntent);
         finish();
 
+        Toast.makeText(Bones.this, "Label has been selected", Toast.LENGTH_LONG).show();
+
     }
 
     private void openWebViewB2Activity() {
@@ -225,6 +236,8 @@ public class Bones extends AppCompatActivity {
         Intent loginIntent = new Intent(Bones.this, webview_b2.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(Bones.this, "Label has been selected", Toast.LENGTH_LONG).show();
 
     }
 
@@ -234,7 +247,16 @@ public class Bones extends AppCompatActivity {
         startActivity(loginIntent);
         finish();
 
+        Toast.makeText(Bones.this, "Label has been selected", Toast.LENGTH_LONG).show();
+
     }
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     @Override
     protected void onResume() {
@@ -252,6 +274,13 @@ public class Bones extends AppCompatActivity {
      *
      * @param frameTime - time since last frame.
      */
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
     @SuppressLint("RestrictedApi")
     public void onUpdateFrame(FrameTime frameTime) {
         Frame frame = arFragment.getArSceneView().getArFrame();
@@ -267,6 +296,13 @@ public class Bones extends AppCompatActivity {
 
             return;
         }
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         Collection<AugmentedImage> updatedAugmentedImages =
                 frame.getUpdatedTrackables(AugmentedImage.class);
@@ -311,6 +347,8 @@ public class Bones extends AppCompatActivity {
             }
         }
     }
+
+
 
     @Override
     public void onBackPressed() {

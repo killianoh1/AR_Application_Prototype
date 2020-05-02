@@ -23,6 +23,16 @@
     <string name="setup_School">School....</string>
     <string name="setup_School_Year">Your school year (i.e. Third Year)....</string>
     <string name="setup_Button">"Save "</string>
+    <string name="thumb_text">F.Retinaculum</string>
+    <string name="middle_text">P. Plates</string>
+    <string name="thumb_L_text">C. Ligaments</string>
+    <string name="index_B_text">I. Metacarpal</string>
+    <string name="middle_B_text">M.Phalanx</string>
+    <string name="thumb_B_text">P. Phalanx</string>
+    <string name="index_M_text">Opp Pollicis</string>
+    <string name="middle_M_text">ABD Pollis</string>
+    <string name="thumb_M_text">ADD Pollis</string>
+    <string name="title_textView">Anatomy Insight</string>
 
 
 </resources>

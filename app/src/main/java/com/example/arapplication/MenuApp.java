@@ -1,8 +1,13 @@
 package com.example.arapplication;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 
 import com.google.ar.sceneform.FrameTime;
@@ -17,9 +24,14 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class MenuApp extends AppCompatActivity {
 
     private FirebaseAnalytics mFirebaseAnalytics;
+
+    private int Camera_Permission_code = 1;
 
     private Button buttonM,buttonB,buttonL;
     private FirebaseAuth mAuth;
@@ -51,13 +63,21 @@ public class MenuApp extends AppCompatActivity {
         buttonM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Date date = new Date();
+
+                long time = date.getTime();
+
+                Timestamp timestamp = new Timestamp(time);
                 Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "muscleBtn" );
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscle");
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "musclesBtn" );
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscles");
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
-                openMainActivity();
+              openMainActivity();
+
+
             }
         });
 
@@ -65,10 +85,16 @@ public class MenuApp extends AppCompatActivity {
         buttonB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Date date = new Date();
+
+                long time = date.getTime();
+
+                Timestamp timestamp = new Timestamp(time);
                 Bundle bundle = new Bundle();
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "bonesBtn" );
                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones");
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
 
@@ -80,11 +106,20 @@ public class MenuApp extends AppCompatActivity {
         buttonL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Date date = new Date();
+
+                long time = date.getTime();
+
+                Timestamp timestamp = new Timestamp(time);
                 Bundle bundle = new Bundle();
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "ligamentsBtn" );
                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Ligaments");
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+
 
                 openLigamentsActivity();
             }
@@ -92,6 +127,8 @@ public class MenuApp extends AppCompatActivity {
 
 
     }
+
+
 
 
 
@@ -141,6 +178,20 @@ public class MenuApp extends AppCompatActivity {
 
 
         public void openLigamentsActivity () {
+
+
+            Date date = new Date();
+
+            long time = date.getTime();
+
+            Timestamp timestamp = new Timestamp(time);
+
+            Bundle params = new Bundle();
+            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Ligaments model");
+            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
+            //params.putString("timestamp", timestamp.toString());
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
+
             Intent intent = new Intent(this, Ligaments.class);
             startActivity(intent);
             finish();
@@ -148,6 +199,21 @@ public class MenuApp extends AppCompatActivity {
         }
 
         public void openBonesActivity () {
+
+
+            Date date = new Date();
+
+            long time = date.getTime();
+
+            Timestamp timestamp = new Timestamp(time);
+
+            Bundle params = new Bundle();
+            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones model");
+            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
+            //params.putString("timestamp", timestamp.toString());
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
+
+
             Intent intent = new Intent(this, Bones.class);
 
             startActivity(intent);
@@ -159,8 +225,23 @@ public class MenuApp extends AppCompatActivity {
 
 
         public void openMainActivity () {
-            Intent intent = new Intent(this, Muscle.class);
 
+
+
+
+            Date date = new Date();
+
+            long time = date.getTime();
+
+            Timestamp timestamp = new Timestamp(time);
+
+            Bundle params = new Bundle();
+            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscle model");
+            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
+            //params.putString("timestamp", timestamp.toString());
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
+
+            Intent intent = new Intent(this, Muscle.class);
             startActivity(intent);
             finish();
 

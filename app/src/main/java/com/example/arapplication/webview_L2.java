@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class webview_L2 extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class webview_L2 extends AppCompatActivity {
 
         webview = (WebView)findViewById(R.id.webview_L2);
         webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://www.britannica.com/science/human-skeleton/Hands-and-feet");
+        webview.loadUrl("https://teachmeanatomy.info/upper-limb/misc/structures-hand/");
 
     }
 
@@ -29,6 +30,8 @@ public class webview_L2 extends AppCompatActivity {
         Intent loginIntent = new Intent(webview_L2.this, Ligaments.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(webview_L2.this, "Returned to camera view", Toast.LENGTH_LONG).show();
 
     }
 

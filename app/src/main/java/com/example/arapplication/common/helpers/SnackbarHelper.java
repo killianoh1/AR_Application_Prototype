@@ -23,30 +23,66 @@ import com.google.android.material.snackbar.Snackbar;
 /**
  * Helper to manage the sample snackbar. Hides the Android boilerplate code, and exposes simpler
  * methods.
+ * Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
  */
 
 // This is a new comment for branches
-
+/** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
 public final class SnackbarHelper {
   private static final int BACKGROUND_COLOR = 0xbf323232;
   private static final SnackbarHelper THE_INSTANCE = new SnackbarHelper();
   private Snackbar messageSnackbar;
 
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
   private enum DismissBehavior {
     HIDE,
     SHOW,
     FINISH
   };
-
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
   public static SnackbarHelper getInstance() {
     return THE_INSTANCE;
   }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
+
   public boolean isShowing() {
     return messageSnackbar != null;
   }
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
-  /** Shows a snackbar with a given message. */
+  /** Shows a snackbar with a given message.*/
   public void showMessage(Activity activity, String message) {
     show(activity, message, DismissBehavior.HIDE);
   }
@@ -68,6 +104,12 @@ public final class SnackbarHelper {
    * Hides the currently showing snackbar, if there is one. Safe to call from any thread. Safe to
    * call even if snackbar is not shown.
    */
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
   public void hide(Activity activity) {
     activity.runOnUiThread(
         new Runnable() {
@@ -81,10 +123,24 @@ public final class SnackbarHelper {
         });
   }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
   private void show(
           final Activity activity, final String message, final DismissBehavior dismissBehavior) {
     activity.runOnUiThread(
         new Runnable() {
+
+            /** Title: ARCore Augmented Images
+             * Author: Google Code labs
+             * Date: 2019
+             * Code version: 2.0
+             * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+             */
           @Override
           public void run() {
             messageSnackbar =
@@ -97,6 +153,13 @@ public final class SnackbarHelper {
               messageSnackbar.setAction(
                   "Dismiss",
                   new View.OnClickListener() {
+
+                      /** Title: ARCore Augmented Images
+                       * Author: Google Code labs
+                       * Date: 2019
+                       * Code version: 2.0
+                       * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+                       */
                     @Override
                     public void onClick(View v) {
                       messageSnackbar.dismiss();
@@ -105,6 +168,13 @@ public final class SnackbarHelper {
               if (dismissBehavior == DismissBehavior.FINISH) {
                 messageSnackbar.addCallback(
                     new BaseTransientBottomBar.BaseCallback<Snackbar>() {
+
+                        /** Title: ARCore Augmented Images
+                         * Author: Google Code labs
+                         * Date: 2019
+                         * Code version: 2.0
+                         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+                         */
                       @Override
                       public void onDismissed(Snackbar transientBottomBar, int event) {
                         super.onDismissed(transientBottomBar, event);

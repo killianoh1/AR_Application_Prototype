@@ -50,6 +50,13 @@ public class Ligaments extends AppCompatActivity {
 
     private TextView middle;
 
+    private Color Blue = new Color(52, 195, 235);
+    private static final float LIGHT_FALLOFF_RADIUS = .5f;
+
+
+
+
+
     private TextView thumb;
     private Toolbar mainToolbar;
 
@@ -131,8 +138,10 @@ public class Ligaments extends AppCompatActivity {
 
 
     private String generateFilename() {
-        String date = new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
+        String date =
+                new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
+        return Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
 
 
@@ -209,6 +218,8 @@ public class Ligaments extends AppCompatActivity {
         startActivity(loginIntent);
         finish();
 
+        Toast.makeText(Ligaments.this, "Label has been selected", Toast.LENGTH_LONG).show();
+
     }
 
     private void openWebViewL2Activity() {
@@ -217,6 +228,8 @@ public class Ligaments extends AppCompatActivity {
         startActivity(loginIntent);
         finish();
 
+        Toast.makeText(Ligaments.this, "Label has been selected", Toast.LENGTH_LONG).show();
+
     }
 
     private void openWebViewL3Activity() {
@@ -224,6 +237,8 @@ public class Ligaments extends AppCompatActivity {
         Intent loginIntent = new Intent(Ligaments.this, webview_L3.class);
         startActivity(loginIntent);
         finish();
+
+        Toast.makeText(Ligaments.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -289,7 +304,16 @@ public class Ligaments extends AppCompatActivity {
                     {
                         MyARNodeL node = new MyARNodeL(this,R.raw.hand);
                         node.setImage(augmentedImage);
-                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(108,246,218)).build());
+
+                        Light.Builder lightBuilder =
+                                Light.builder(Light.Type.POINT)
+                                .setFalloffRadius(LIGHT_FALLOFF_RADIUS)
+                                .setShadowCastingEnabled(false);
+                        lightBuilder.setColor(Blue);
+                        Light light = lightBuilder.build();
+
+                        node.setLight(light);
+
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 

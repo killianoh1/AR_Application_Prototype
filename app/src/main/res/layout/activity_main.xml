@@ -48,39 +48,45 @@
         android:id="@+id/index"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-        android:text="Opp Pollicis"
+        android:text="@string/index_M_text"
         android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold"
         android:visibility="invisible" />
 
     <TextView
         android:id="@+id/middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
+        android:layout_marginLeft="170dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-        android:text="ABD Pollis"
+        android:text="@string/middle_M_text"
         android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold"
         android:visibility="invisible" />
 
     <TextView
         android:id="@+id/thumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="270dp"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:background="@drawable/rounded_bg"
         android:padding="10dp"
-        android:text="ADD Pollis"
+        android:text="@string/thumb_M_text"
         android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textStyle="bold"
         android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -90,6 +96,7 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="60dp"
         android:clickable="true"
+        android:visibility="invisible"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
 

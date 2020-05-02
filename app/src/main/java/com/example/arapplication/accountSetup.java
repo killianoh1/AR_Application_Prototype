@@ -27,6 +27,12 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+ * Author: Akshaye JH
+ * Date: 2018
+ * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+ */
+
 public class accountSetup extends AppCompatActivity {
 
     private Toolbar mainToolbar;
@@ -41,7 +47,11 @@ public class accountSetup extends AppCompatActivity {
     private String user_id;
 
 
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +77,11 @@ public class accountSetup extends AppCompatActivity {
 
         setup_Button = findViewById(R.id.setup_Button);
 
-
+/** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+ * Author: Akshaye JH
+ * Date: 2018
+ * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+ */
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -98,7 +112,11 @@ public class accountSetup extends AppCompatActivity {
             }
         });
 
-
+/** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+ * Author: Akshaye JH
+ * Date: 2018
+ * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+ */
         setup_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +133,12 @@ public class accountSetup extends AppCompatActivity {
                     userMap.put("name", user_name);
                     userMap.put("School", user_school);
                     userMap.put("School Year", user_school_year);
+
+                    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+                     * Author: Akshaye JH
+                     * Date: 2018
+                     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+                     */
 
                     firebaseFirestore.collection("Users").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -144,9 +168,6 @@ public class accountSetup extends AppCompatActivity {
 
                     Toast.makeText(accountSetup.this, "Enter all fields", Toast.LENGTH_SHORT).show();
 
-
-
-
                 }
 
             }
@@ -157,7 +178,11 @@ public class accountSetup extends AppCompatActivity {
 
     }
 
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+     */
 
     @Override
     protected void onStart() {
@@ -173,7 +198,11 @@ public class accountSetup extends AppCompatActivity {
         }
 
     }
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 3
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=YfoTdnI3IKs&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=3
+     */
 
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -181,6 +210,12 @@ public class accountSetup extends AppCompatActivity {
         return true;
 
     }
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 3
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=YfoTdnI3IKs&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=3
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -202,13 +237,23 @@ public class accountSetup extends AppCompatActivity {
         }
 
     }
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 3
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=YfoTdnI3IKs&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=3
+     */
 
     private void logOut() {
 
         firebaseAuth.signOut();
         sendToLogin();
     }
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 3
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=YfoTdnI3IKs&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=3
+     */
 
     private void sendToLogin() {
 
@@ -217,6 +262,13 @@ public class accountSetup extends AppCompatActivity {
         finish();
 
     }
+
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 3
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=YfoTdnI3IKs&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=3
+     */
 
     private void sendtoMenu(){
         Intent loginIntent = new Intent(this, MenuApp.class);
