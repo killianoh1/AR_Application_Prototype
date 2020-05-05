@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,6 +45,8 @@ public class accountSetup extends AppCompatActivity {
     private EditText setupYear;
     private Button setup_Button;
 
+    private GoogleSignInClient mGoogleSignInClient;
+
     private FirebaseFirestore firebaseFirestore;
 
     private String user_id;
@@ -56,6 +61,17 @@ public class accountSetup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setup);
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -176,6 +192,8 @@ public class accountSetup extends AppCompatActivity {
 
 
 
+
+
     }
 
     /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
@@ -246,6 +264,15 @@ public class accountSetup extends AppCompatActivity {
     private void logOut() {
 
         firebaseAuth.signOut();
+
+        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        sendToLogin();
+                    }
+                });
+
         sendToLogin();
     }
 

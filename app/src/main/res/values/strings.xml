@@ -4,7 +4,7 @@
     <string name="pass_hint">Password....</string>
     <string name="email_hint">Your Email....</string>
     <string name="login_btn_text">Login</string>
-    <string name="login_reg_btn_text">Need a New Account?</string>
+    <string name="login_reg_btn_text">Create Account?</string>
     <string name="muscle_btn">Muscle</string>
     <string name="musclesBtn">Muscle</string>
     <string name="bonesBtn">Bone</string>
