@@ -37,6 +37,8 @@ public class MenuApp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Toolbar mainToolbar;
 
+    private Button guideB;
+
 
 
 
@@ -52,11 +54,20 @@ public class MenuApp extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Anatomy Insight");
 
+        guideB = findViewById(R.id.guideBtn);
+
 
 
         mAuth = FirebaseAuth.getInstance();
 
         buttonM = (Button)findViewById(R.id.musclesBtn);
+
+        guideB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSlider();
+            }
+        });
 
 
 
@@ -128,8 +139,13 @@ public class MenuApp extends AppCompatActivity {
 
     }
 
+    private void openSlider() {
 
+        Intent intent = new Intent(this, SliderActivity.class);
+        startActivity(intent);
+        finish();
 
+    }
 
 
     @Override

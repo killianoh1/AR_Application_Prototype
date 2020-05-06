@@ -33,6 +33,11 @@
     <string name="middle_M_text">ABD Pollis</string>
     <string name="thumb_M_text">ADD Pollis</string>
     <string name="title_textView">Anatomy Insight</string>
+    <string name="guide_Btn">How To Use</string>
+
+
+    <string name="text_heading">HEADING</string>
+    <string name="description_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis metus eget iaculis maximus. Vestibulum a neque ultricies, cursus dolor sed</string>
 
 
 </resources>

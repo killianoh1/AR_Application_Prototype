@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera.ar"
@@ -20,7 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".accountSetup"></activity>
+        <activity android:name=".SliderActivity"
+            android:parentActivityName="MenuApp"/>
+        <activity android:name=".accountSetup" />
         <activity android:name=".webview_L3" />
         <activity android:name=".webview_L2" />
         <activity android:name=".webview_L1" />
@@ -32,17 +34,21 @@
         <activity android:name=".webview_m1" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginAcitivity" />
-        <activity android:name=".Ligaments" android:parentActivityName=".MenuApp"/>
-        <activity android:name=".Bones" android:parentActivityName=".MenuApp"></activity>
+        <activity
+            android:name=".Ligaments"
+            android:parentActivityName=".MenuApp" />
+        <activity
+            android:name=".Bones"
+            android:parentActivityName=".MenuApp" />
         <activity android:name=".MenuApp">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+
 
         <meta-data
             android:name="com.google.ar.core"
@@ -58,10 +64,13 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/paths"/>
+                android:resource="@xml/paths"
+                />
         </provider>
 
-        <activity android:name=".Muscle" android:parentActivityName=".MenuApp"/>
+        <activity
+            android:name=".Muscle"
+            android:parentActivityName=".MenuApp" />
     </application>
 
 </manifest>

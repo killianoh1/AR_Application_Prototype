@@ -58,7 +58,3 @@ sceneform.asset('sampledata/blue_bones.obj',
         'default',
         'sampledata/blue_bones.sfa',
         'src/main/res/raw/blue_bones')
-
-
-
-

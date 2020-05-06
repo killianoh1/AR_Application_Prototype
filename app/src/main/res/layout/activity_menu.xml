@@ -27,6 +27,7 @@
         android:text="@string/bonesBtn"
         android:textColor="@color/whiteTransparentHalf"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/musclesBtn">
@@ -42,9 +43,28 @@
         android:text="@string/ligamentsBtn"
         android:textColor="@color/whiteTransparentHalf"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bonesBtn">
+
+    </Button>
+
+    <Button
+        android:id="@+id/guideBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorAccent"
+        android:backgroundTint="@color/whiteTransparentHalf"
+        android:text="@string/guide_Btn"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ligamentsBtn">
 
     </Button>
 
@@ -57,9 +77,13 @@
         android:text="@string/musclesBtn"
         android:textColor="@color/whiteTransparentHalf"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
