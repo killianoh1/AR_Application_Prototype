@@ -50,6 +50,7 @@
 
 
 
+
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />
@@ -70,7 +71,14 @@
 
         <activity
             android:name=".Muscle"
-            android:parentActivityName=".MenuApp" />
+            android:parentActivityName=".MenuApp">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MenuApp"
+            ></meta-data>
+
+            </activity>
     </application>
 
 </manifest>

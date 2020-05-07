@@ -28,7 +28,8 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.intro1_box,
             R.drawable.intro2_web,
             R.drawable.intro3,
-            R.drawable.intro2_cam
+            R.drawable.intro2_cam,
+            R.drawable.account_help
 
 
 
@@ -39,7 +40,8 @@ public class SliderAdapter extends PagerAdapter {
             "Starting Camera View",
             "Model Rendered",
             "WebView",
-            "Take Photo"
+            "Take Photo",
+            "Signing Out"
 
 
     };
@@ -54,7 +56,9 @@ public class SliderAdapter extends PagerAdapter {
             "After selecting a label,  a web page will pop up relating to that label you selected. Press the back button on your mobile to return" +
                     "to the original camera view.",
 
-            "You can also take a photo of the hand model by pressing the camera button when the model appears. The photo will automatically save to your device."
+            "You can also take a photo of the hand model by pressing the camera button when the model appears. The photo will automatically save to your device.",
+
+            "To log out, access your account page from the menu and select the dots icon located in the corner."
 
     };
 

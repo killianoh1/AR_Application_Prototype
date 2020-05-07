@@ -114,8 +114,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         app:buttonSize="icon_only"
         app:layout_constraintBottom_toTopOf="@+id/login_reg_btn"
         app:layout_constraintEnd_toEndOf="parent"

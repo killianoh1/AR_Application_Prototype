@@ -3,6 +3,7 @@ package com.example.arapplication;
 //references: youtube tutorial: https://www.youtube.com/watch?v=1lu4PenfVWc
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -107,6 +108,7 @@ public class Muscle extends AppCompatActivity {
         setSupportActionBar(mainToolbar);
 
         getSupportActionBar().setTitle("Anatomy Insight - Muscle");
+        
 
         middle = findViewById(R.id.middle);
 

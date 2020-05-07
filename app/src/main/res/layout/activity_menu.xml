@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/bonesBtn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@color/colorAccent"
@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/ligamentsBtn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@color/colorAccent"
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/guideBtn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@color/colorAccent"
@@ -62,7 +62,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ligamentsBtn">
 
@@ -70,10 +69,12 @@
 
     <Button
         android:id="@+id/musclesBtn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@color/colorAccent"
+        android:shadowColor="@color/colorWhite"
+        android:singleLine="false"
         android:text="@string/musclesBtn"
         android:textColor="@color/whiteTransparentHalf"
         android:textSize="18sp"

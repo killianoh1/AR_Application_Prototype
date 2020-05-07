@@ -92,7 +92,6 @@ public class SliderActivity extends AppCompatActivity {
         public void onPageSelected(int i) {
 
 
-
             mCurrentPage =i;
             if (i == 0){
 
@@ -103,7 +102,7 @@ public class SliderActivity extends AppCompatActivity {
                 nextBtn.setText("Next");
                 backBtn.setText("");
 
-            } else if (i == 3){
+            } else if (i == 4){
                 nextBtn.setEnabled(true);
                 backBtn.setEnabled(true);
                 nextBtn.setVisibility(View.INVISIBLE);
