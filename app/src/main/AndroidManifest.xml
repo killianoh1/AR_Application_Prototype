@@ -45,8 +45,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".RegisterActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".LoginAcitivity"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MenuApp"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Ligaments"
             android:parentActivityName=".MenuApp"
@@ -55,7 +55,7 @@
             android:name=".Bones"
             android:parentActivityName=".MenuApp"
             android:screenOrientation="portrait"/>
-        <activity android:name=".MenuApp"
+        <activity android:name=".LoginAcitivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

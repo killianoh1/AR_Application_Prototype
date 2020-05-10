@@ -301,13 +301,6 @@ public class LoginAcitivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        if (currentUser != null) {
-
-            sendToMain();
-
-        }
     }
 
     /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2

@@ -42,6 +42,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Title: Hand Model
+ * Author:  Poly Google
+ * Date: 2017
+ * Availability: https://poly.google.com/view/btWmPNVSKUc
+ */
+
 public class Ligaments extends AppCompatActivity {
 
     /** Title: Get started with Google Analytics

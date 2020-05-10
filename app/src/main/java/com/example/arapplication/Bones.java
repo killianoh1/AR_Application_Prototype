@@ -60,6 +60,11 @@ import java.util.Map;
  * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
  */
 
+/** Title: Hand Bones Model
+ * Author:  Botfarm88
+ * Availability: https://www.thingiverse.com/thing:5904
+ */
+
 public class Bones extends AppCompatActivity {
 
     /** Title: Get started with Google Analytics

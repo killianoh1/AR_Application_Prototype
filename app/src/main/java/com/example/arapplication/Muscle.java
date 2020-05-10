@@ -55,10 +55,16 @@ import java.util.concurrent.CompletableFuture;
 
 /** Title: ARCore Augmented Images
  * Author: Google Code labs
- * Date: 2019
- * Code version: 2.0
+ * Date: 2020
  * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
  */
+
+/** Title: Hand Model
+ * Author:  Poly Google
+ * Date: 2017
+ * Availability: https://poly.google.com/view/btWmPNVSKUc
+ */
+
 
 public class Muscle extends AppCompatActivity {
 
