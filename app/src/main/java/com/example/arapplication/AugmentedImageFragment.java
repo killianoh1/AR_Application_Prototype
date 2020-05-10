@@ -1,5 +1,6 @@
 package com.example.arapplication;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -192,6 +193,25 @@ public class AugmentedImageFragment extends ArFragment {
         }
         return null;
 
+    }
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
+
+
+    public String[] getAdditionalPermissions() {
+        String[] additionalPermissions = super.getAdditionalPermissions();
+        int permissionLength = additionalPermissions != null ? additionalPermissions.length : 0;
+        String[] permissions = new String[permissionLength + 1];
+        permissions[0] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+        if (permissionLength > 0) {
+            System.arraycopy(additionalPermissions, 0, permissions, 1, additionalPermissions.length);
+        }
+        return permissions;
     }
 
 }

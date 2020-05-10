@@ -263,7 +263,6 @@ public class Muscle extends AppCompatActivity {
         final String filename = generateFilename();
         ArSceneView view = arFragment.getArSceneView();
 
-
         // Create a bitmap the size of the scene view.
         final Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                 Bitmap.Config.ARGB_8888);
