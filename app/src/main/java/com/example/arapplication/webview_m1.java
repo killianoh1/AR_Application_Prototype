@@ -8,7 +8,21 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+/** Title: WebView - Android Studio Tutorial
+ * Author: Coding in Flow
+ * Date: 2017
+ * Code version: -
+ * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+ */
+
 public class webview_m1 extends AppCompatActivity {
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private WebView webview;
 
@@ -16,10 +30,16 @@ public class webview_m1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_m1);
+
+        /** Title: WebView - Android Studio Tutorial
+         * Author: Coding in Flow
+         * Date: 2017
+         * Code version: -
+         * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+         */
         webview = (WebView)findViewById(R.id.webview_m1);
         webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://www.britannica.com/science/human-skeleton/Hands-and-feet");
-
+        webview.loadUrl("https://teachmeanatomy.info/upper-limb/muscles/hand/");
 
 
     }

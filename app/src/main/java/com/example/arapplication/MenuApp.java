@@ -29,12 +29,24 @@ import java.util.Date;
 
 public class MenuApp extends AppCompatActivity {
 
+    /** Title: Get started with Google Analytics
+     * Author: Firebase
+     * Date: 2020
+     * Version: 2.0
+     * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+     */
+
     private FirebaseAnalytics mFirebaseAnalytics;
 
-    private int Camera_Permission_code = 1;
 
     private Button buttonM,buttonB,buttonL;
     private FirebaseAuth mAuth;
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
     private Toolbar mainToolbar;
 
     private Button guideB;
@@ -47,8 +59,20 @@ public class MenuApp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+         */
         mainToolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mainToolbar);
 
@@ -74,17 +98,6 @@ public class MenuApp extends AppCompatActivity {
         buttonM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date date = new Date();
-
-                long time = date.getTime();
-
-                Timestamp timestamp = new Timestamp(time);
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "musclesBtn" );
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscles");
-                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
-                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
               openMainActivity();
 
@@ -96,18 +109,6 @@ public class MenuApp extends AppCompatActivity {
         buttonB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date date = new Date();
-
-                long time = date.getTime();
-
-                Timestamp timestamp = new Timestamp(time);
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "bonesBtn" );
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones");
-                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
-                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-
 
                 openBonesActivity();
             }
@@ -117,18 +118,6 @@ public class MenuApp extends AppCompatActivity {
         buttonL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Date date = new Date();
-
-                long time = date.getTime();
-
-                Timestamp timestamp = new Timestamp(time);
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "ligamentsBtn" );
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Ligaments");
-                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
-                bundle.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
 
 
@@ -162,7 +151,11 @@ public class MenuApp extends AppCompatActivity {
         }
 
     }
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -171,6 +164,12 @@ public class MenuApp extends AppCompatActivity {
         return true;
 
     }
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
 
 
     @Override
@@ -196,17 +195,6 @@ public class MenuApp extends AppCompatActivity {
         public void openLigamentsActivity () {
 
 
-            Date date = new Date();
-
-            long time = date.getTime();
-
-            Timestamp timestamp = new Timestamp(time);
-
-            Bundle params = new Bundle();
-            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Ligaments model");
-            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-            //params.putString("timestamp", timestamp.toString());
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
 
             Intent intent = new Intent(this, Ligaments.class);
             startActivity(intent);
@@ -217,17 +205,6 @@ public class MenuApp extends AppCompatActivity {
         public void openBonesActivity () {
 
 
-            Date date = new Date();
-
-            long time = date.getTime();
-
-            Timestamp timestamp = new Timestamp(time);
-
-            Bundle params = new Bundle();
-            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Bones model");
-            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-            //params.putString("timestamp", timestamp.toString());
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
 
 
             Intent intent = new Intent(this, Bones.class);
@@ -245,18 +222,6 @@ public class MenuApp extends AppCompatActivity {
 
 
 
-            Date date = new Date();
-
-            long time = date.getTime();
-
-            Timestamp timestamp = new Timestamp(time);
-
-            Bundle params = new Bundle();
-            params.putString(FirebaseAnalytics.Param.ITEM_NAME, "Muscle model");
-            params.putString(FirebaseAnalytics.Param.METHOD, timestamp.toString());
-            //params.putString("timestamp", timestamp.toString());
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
-
             Intent intent = new Intent(this, Muscle.class);
             startActivity(intent);
             finish();
@@ -266,23 +231,44 @@ public class MenuApp extends AppCompatActivity {
         }
 
 
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
     private void openAccount(){
         Intent intent = new Intent(this, accountSetup.class);
         startActivity(intent);
         finish();
 
     }
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
 
     @Override
     protected void onResume() {
 
         super.onResume();
 
-        //finish();
-        //startActivity(getIntent());
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics.setCurrentScreen(this, getClass().getSimpleName(), "Menu Screen");
+
 
     }
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
 
     @Override
     protected void onPause() {
@@ -290,13 +276,17 @@ public class MenuApp extends AppCompatActivity {
 
 
     }
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
 
     @Override
     protected void onRestart() {
         super.onRestart();
 
-        //Intent previewMessage = new Intent(StampiiStore.this, StampiiStore.class);
+
 
 
     }

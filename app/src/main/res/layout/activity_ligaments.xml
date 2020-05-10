@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Muscle">
 
+    <!--
+    /** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
+-->
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,7 +52,7 @@
         android:id="@+id/index"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
 
@@ -52,13 +61,14 @@
         android:text="@string/thumb_L_text"
         android:textAlignment="center"
         android:textColor="@color/whiteTransparentHalf"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="170dp"
+        android:layout_marginLeft="160dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
 
@@ -67,13 +77,14 @@
         android:text="@string/middle_text"
         android:textAlignment="center"
         android:textColor="@color/whiteTransparentHalf"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/thumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="280dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
 
@@ -82,7 +93,8 @@
         android:text="@string/thumb_text"
         android:textAlignment="center"
         android:textColor="@color/whiteTransparentHalf"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

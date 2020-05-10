@@ -21,26 +21,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SliderActivity"
-            android:parentActivityName="MenuApp"/>
-        <activity android:name=".accountSetup" />
-        <activity android:name=".webview_L3" />
-        <activity android:name=".webview_L2" />
-        <activity android:name=".webview_L1" />
-        <activity android:name=".webview_b3" />
-        <activity android:name=".webview_b2" />
-        <activity android:name=".webview_b1" />
-        <activity android:name=".webview_m3" />
-        <activity android:name=".webview_m2" />
-        <activity android:name=".webview_m1" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginAcitivity" />
+            android:parentActivityName="MenuApp"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".accountSetup"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_L3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_L2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_L1"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_b3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_b2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_b1"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_m3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_m2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webview_m1"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginAcitivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Ligaments"
-            android:parentActivityName=".MenuApp" />
+            android:parentActivityName=".MenuApp"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Bones"
-            android:parentActivityName=".MenuApp" />
-        <activity android:name=".MenuApp">
+            android:parentActivityName=".MenuApp"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MenuApp"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,7 +87,8 @@
 
         <activity
             android:name=".Muscle"
-            android:parentActivityName=".MenuApp">
+            android:parentActivityName=".MenuApp"
+            android:screenOrientation="portrait">
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"

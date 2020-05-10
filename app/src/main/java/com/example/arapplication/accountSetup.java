@@ -20,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -37,6 +38,13 @@ import java.util.Map;
  */
 
 public class accountSetup extends AppCompatActivity {
+
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+     */
 
     private Toolbar mainToolbar;
     private FirebaseAuth firebaseAuth;
@@ -62,16 +70,28 @@ public class accountSetup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setup);
 
+
+
+        /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+         * Author: EasyLearn
+         * Date: 2019
+         * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+         */
+
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
-
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+         */
 
         firebaseAuth = FirebaseAuth.getInstance();
 

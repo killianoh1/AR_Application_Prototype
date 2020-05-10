@@ -39,6 +39,7 @@ import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -61,8 +62,24 @@ import java.util.Map;
 
 public class Bones extends AppCompatActivity {
 
+    /** Title: Get started with Google Analytics
+     * Author: Firebase
+     * Date: 2020
+     * Version: 2.0
+     * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+     */
+
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     private Toolbar mainToolbar;
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
     private ArFragment arFragment;
     private ImageView fitToScanView;
 
@@ -72,10 +89,22 @@ public class Bones extends AppCompatActivity {
 
     private TextView thumb;
 
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
+
     private FloatingActionButton fab;
 
 
-
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
     private final Map augmentedImageMap = new HashMap<>();
@@ -86,11 +115,33 @@ public class Bones extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bones);
 
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
+
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
         index = findViewById(R.id.index);
 
+        /** Title: Introduction to Sceneform
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: -
+         * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+         */
 
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -101,13 +152,24 @@ public class Bones extends AppCompatActivity {
             }
         });
 
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+         */
+
         mainToolbar = findViewById(R.id.main_toolbar);
 
         setSupportActionBar(mainToolbar);
 
         getSupportActionBar().setTitle("Anatomy Insight - Bones");
 
-
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
         middle = findViewById(R.id.middle);
 
         thumb = findViewById(R.id.thumb);
@@ -134,11 +196,25 @@ public class Bones extends AppCompatActivity {
         });
 
 
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
+
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
     }
 
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
     private String generateFilename() {
         String date =
@@ -147,6 +223,14 @@ public class Bones extends AppCompatActivity {
                 Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
 
+
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
     private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
 
@@ -165,6 +249,14 @@ public class Bones extends AppCompatActivity {
         }
     }
 
+
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
     private void takePhoto() {
         final String filename = generateFilename();
@@ -216,9 +308,12 @@ public class Bones extends AppCompatActivity {
 
 
 
-
-
-
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
 
     private void openWebViewB1Activity() {
@@ -231,6 +326,13 @@ public class Bones extends AppCompatActivity {
 
     }
 
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private void openWebViewB2Activity() {
 
         Intent loginIntent = new Intent(Bones.this, webview_b2.class);
@@ -240,6 +342,13 @@ public class Bones extends AppCompatActivity {
         Toast.makeText(Bones.this, "Label has been selected", Toast.LENGTH_LONG).show();
 
     }
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private void openWebViewB3Activity() {
 
@@ -264,6 +373,15 @@ public class Bones extends AppCompatActivity {
         if (augmentedImageMap.isEmpty()) {
             fitToScanView.setVisibility(View.VISIBLE);
         }
+
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics.setCurrentScreen(this, getClass().getSimpleName(), "Bones Screen");
 
 
     }
@@ -330,6 +448,13 @@ public class Bones extends AppCompatActivity {
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
                         MyARNodeB node = new MyARNodeB(this, R.raw.blue_bones);
                         node.setImage(augmentedImage);
+
+                        /** Title: LightingActivity
+                         * Author: Google Code labs
+                         * Date: 2018
+                         * Code version: 2.0
+                         * Availability: https://www.codota.com/web/assistant/code/rs/5c7c4ba12ef5570001db46ab#L209
+                         */
                         node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,245,244)).build());
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);

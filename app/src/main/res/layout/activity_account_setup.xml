@@ -8,6 +8,16 @@
     android:padding="20dp"
     tools:context=".accountSetup">
 
+    <!--
+/** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 5
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=5
+     */
+    -->
+
+
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/main_toolbar"

@@ -7,8 +7,20 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
+/** Title: WebView - Android Studio Tutorial
+ * Author: Coding in Flow
+ * Date: 2017
+ * Code version: -
+ * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+ */
 public class webview_L1 extends AppCompatActivity {
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private WebView webview;
 
@@ -16,6 +28,13 @@ public class webview_L1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview__l1);
+
+        /** Title: WebView - Android Studio Tutorial
+         * Author: Coding in Flow
+         * Date: 2017
+         * Code version: -
+         * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+         */
 
         webview = (WebView)findViewById(R.id.webview_L1);
         webview.setWebViewClient(new WebViewClient());

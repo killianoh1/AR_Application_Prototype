@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
+     /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+-->
+
     <TextView
         android:id="@+id/slide_heading"
         android:layout_width="wrap_content"

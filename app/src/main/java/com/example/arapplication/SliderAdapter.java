@@ -11,18 +11,40 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.arapplication.R;
+
+
+/** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+ * Author: Akshaye JH
+ * Date: 2017
+ * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+ */
 
 public class SliderAdapter extends PagerAdapter {
 
-
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
     Context context;
     LayoutInflater layoutInflater;
 
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+
     public SliderAdapter(Context context){
         this.context = context;
     }
+
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
     public int[] slide_images = {
             R.drawable.intro1_box,
@@ -35,6 +57,12 @@ public class SliderAdapter extends PagerAdapter {
 
     };
 
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+
     public String [] slide_headings= {
 
             "Starting Camera View",
@@ -45,6 +73,12 @@ public class SliderAdapter extends PagerAdapter {
 
 
     };
+
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
 
     public String[] slide_descs = {
@@ -62,15 +96,33 @@ public class SliderAdapter extends PagerAdapter {
 
     };
 
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+
     @Override
     public int getCount() {
         return slide_headings.length;
     }
 
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
         return view == (RelativeLayout) o;
     }
+
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
     @NonNull
     @Override
@@ -93,6 +145,12 @@ public class SliderAdapter extends PagerAdapter {
         return view;
 
     }
+
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {

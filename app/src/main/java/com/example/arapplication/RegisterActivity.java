@@ -18,7 +18,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+ * Author: Akshaye JH
+ * Date: 2018
+ * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+ */
 public class RegisterActivity extends AppCompatActivity {
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+     */
 
     private EditText reg_email_field;
     private EditText reg_pass_field;
@@ -37,6 +48,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+         */
+
         mAuth = FirebaseAuth.getInstance();
 
         reg_email_field = findViewById(R.id.reg_email);
@@ -47,6 +64,19 @@ public class RegisterActivity extends AppCompatActivity {
 
         reg_progress = findViewById(R.id.reg_progress);
 
+        reg_login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sendToLogin();
+            }
+        });
+
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+         */
 
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +87,20 @@ public class RegisterActivity extends AppCompatActivity {
                 String pass = reg_pass_field.getText().toString();
                 String confirm_pass = reg_confirm_pass_field.getText().toString();
 
+                /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+                 * Author: Akshaye JH
+                 * Date: 2018
+                 * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+                 */
+
                 if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass) & !TextUtils.isEmpty(confirm_pass)){
                     reg_progress.setVisibility(View.VISIBLE);
+
+                    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+                     * Author: Akshaye JH
+                     * Date: 2018
+                     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+                     */
 
                     if(pass.equals(confirm_pass)){
 
@@ -66,6 +108,12 @@ public class RegisterActivity extends AppCompatActivity {
                         mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+                                 * Author: Akshaye JH
+                                 * Date: 2018
+                                 * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+                                 */
 
 
                                 if(task.isSuccessful()){
@@ -89,6 +137,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                     }
                 }
+                else{
+                    Toast.makeText(RegisterActivity.this, "Enter All Fields", Toast.LENGTH_LONG).show();
+                }
 
 
             }
@@ -96,6 +147,12 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+     */
 
     @Override
     protected void onStart() {
@@ -110,9 +167,23 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+     */
+
     private void sendToMain() {
 
         Intent mainIntent = new Intent(RegisterActivity.this, MenuApp.class);
+        startActivity(mainIntent);
+        finish();
+
+    }
+
+    private void sendToLogin(){
+
+        Intent mainIntent = new Intent(RegisterActivity.this, LoginAcitivity.class);
         startActivity(mainIntent);
         finish();
 

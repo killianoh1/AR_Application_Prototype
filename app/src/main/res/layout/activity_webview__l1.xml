@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".webview_L1">
 
+    <!--
+            /** Title: WebView - Android Studio Tutorial
+         * Author: Coding in Flow
+         * Date: 2017
+         * Code version: -
+         * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+         */
+    -->
+
     <WebView
         android:id="@+id/webview_L1"
         android:layout_width="match_parent"

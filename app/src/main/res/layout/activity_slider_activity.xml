@@ -7,6 +7,15 @@
     android:background="@drawable/milky_wayi"
     tools:context=".SliderActivity">
 
+    <!--
+         /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
+    -->
+
+
     <Button
         android:id="@+id/backToMenuBtn"
         android:layout_width="wrap_content"

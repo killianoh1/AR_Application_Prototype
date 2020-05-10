@@ -23,7 +23,7 @@
     <string name="setup_School">School....</string>
     <string name="setup_School_Year">Your school year (i.e. Third Year)....</string>
     <string name="setup_Button">"Save "</string>
-    <string name="thumb_text">F.Retinaculum</string>
+    <string name="thumb_text">Flexor R</string>
     <string name="middle_text">P. Plates</string>
     <string name="thumb_L_text">C. Ligaments</string>
     <string name="index_B_text">I. Metacarpal</string>
@@ -36,8 +36,15 @@
     <string name="guide_Btn">How To Use</string>
 
 
+
+
     <string name="text_heading">HEADING</string>
     <string name="description_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis metus eget iaculis maximus. Vestibulum a neque ultricies, cursus dolor sed</string>
+    <string name="menu_text">Select Camera View Below</string>
+    <string name="menu_guide_text">App Guide</string>
 
 
 </resources>
+
+
+

@@ -9,11 +9,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+ * Author: Akshaye JH
+ * Date: 2017
+ * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+ */
+
 public class SliderActivity extends AppCompatActivity {
+
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
 
     private ViewPager mSlideViewpager;
 
-    private Toolbar mainToolbar;
+
 
     private SliderAdapter sliderAdapter;
 
@@ -30,7 +42,11 @@ public class SliderActivity extends AppCompatActivity {
 
 
 
-
+/** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+ * Author: Akshaye JH
+ * Date: 2017
+ * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+ */
 
 
         mSlideViewpager = findViewById(R.id.slideViewPager);
@@ -46,6 +62,12 @@ public class SliderActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.prevBtn);
 
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,12 +75,24 @@ public class SliderActivity extends AppCompatActivity {
             }
         });
 
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
+
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSlideViewpager.setCurrentItem(mCurrentPage - 1);
             }
         });
+
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
 
         backToMBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +103,11 @@ public class SliderActivity extends AppCompatActivity {
             }
         });
 
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
 
         mSlideViewpager.addOnPageChangeListener(viewListener);
 
@@ -81,12 +120,24 @@ public class SliderActivity extends AppCompatActivity {
         finish();
     }
 
+    /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+     * Author: Akshaye JH
+     * Date: 2017
+     * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+     */
+
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int i, float positionOffset, int positionOffsetPixels) {
 
         }
+
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
 
         @Override
         public void onPageSelected(int i) {
@@ -125,6 +176,12 @@ public class SliderActivity extends AppCompatActivity {
             }
 
         }
+
+        /** Title: Android Slide / Walkthrough / Onboarding Screen Design - Android Studio
+         * Author: Akshaye JH
+         * Date: 2017
+         * Availability: https://www.youtube.com/watch?v=byLKoPgB7yA
+         */
 
         @Override
         public void onPageScrollStateChanged(int i) {

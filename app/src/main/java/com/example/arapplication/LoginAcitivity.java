@@ -36,6 +36,11 @@ import java.util.Date;
 
 public class LoginAcitivity extends AppCompatActivity {
 
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
 
     private SignInButton mGoogleBtn;
     private static final int RC_SIGN_IN = 1;
@@ -45,6 +50,11 @@ public class LoginAcitivity extends AppCompatActivity {
 
     private String dateAndTime;
 
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+     */
 
     private EditText loginEmailText;
     private EditText loginPassText;
@@ -60,6 +70,12 @@ public class LoginAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_acitivity);
 
+        /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+         * Author: EasyLearn
+         * Date: 2019
+         * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+         */
+
         mGoogleBtn = findViewById(R.id.googleBtn);
 
 
@@ -68,7 +84,6 @@ public class LoginAcitivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-
 
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -84,6 +99,12 @@ public class LoginAcitivity extends AppCompatActivity {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+         */
+
         mAuth = FirebaseAuth.getInstance();
 
         loginEmailText = findViewById(R.id.reg_email);
@@ -92,6 +113,12 @@ public class LoginAcitivity extends AppCompatActivity {
         loginRegBtn = findViewById(R.id.login_reg_btn);
 
         loginProgress = findViewById(R.id.reg_progress);
+
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+         */
 
         loginRegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +129,11 @@ public class LoginAcitivity extends AppCompatActivity {
 
             }
         });
-
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+         */
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +142,12 @@ public class LoginAcitivity extends AppCompatActivity {
 
                 String loginEmail = loginEmailText.getText().toString();
                 String loginPass = loginPassText.getText().toString();
+
+                /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+                 * Author: Akshaye JH
+                 * Date: 2018
+                 * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+                 */
 
 
                 if (!TextUtils.isEmpty(loginEmail) && !TextUtils.isEmpty(loginPass)) {
@@ -121,18 +158,15 @@ public class LoginAcitivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
 
+                            /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+                             * Author: Akshaye JH
+                             * Date: 2018
+                             * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+                             */
                             if (task.isSuccessful()) {
 
-                                Date date = new Date();
 
-                                long time = date.getTime();
 
-                                Timestamp timestamp = new Timestamp(time);
-
-                                Bundle params = new Bundle();
-                                params.putString(FirebaseAnalytics.Param.METHOD, "email");
-                                params.putString("timestamp", timestamp.toString());
-                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params);
 
                                 Toast.makeText(LoginAcitivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                                 sendToMain();
@@ -160,7 +194,11 @@ public class LoginAcitivity extends AppCompatActivity {
 
 
 
-
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
 
 
     private void signIn() {
@@ -168,6 +206,12 @@ public class LoginAcitivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -179,6 +223,12 @@ public class LoginAcitivity extends AppCompatActivity {
 
     }
 
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try {
             GoogleSignInAccount acc = completedTask.getResult(ApiException.class);
@@ -188,11 +238,17 @@ public class LoginAcitivity extends AppCompatActivity {
 
         } catch (ApiException e){
             FirebaseGoogleAuth(null);
-            Toast.makeText(this, "Google account signed in", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Google account not signed in", Toast.LENGTH_SHORT).show();
 
         }
 
     }
+
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
 
     private void FirebaseGoogleAuth(GoogleSignInAccount acct){
         AuthCredential authCredential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -216,6 +272,12 @@ public class LoginAcitivity extends AppCompatActivity {
 
     }
 
+    /** Title: Login With Google Using Firebase In Android App | Google Login In Android
+     * Author: EasyLearn
+     * Date: 2019
+     * Availability: https://www.youtube.com/watch?v=E1eqRNTZqDM
+     */
+
     private void updateUI(FirebaseUser fUser){
         sendToMain();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
@@ -229,7 +291,11 @@ public class LoginAcitivity extends AppCompatActivity {
 
 
 
-
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+     */
 
     @Override
     protected void onStart() {
@@ -243,6 +309,12 @@ public class LoginAcitivity extends AppCompatActivity {
 
         }
     }
+
+    /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 2
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=2
+     */
 
     private void sendToMain() {
 

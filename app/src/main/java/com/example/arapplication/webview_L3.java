@@ -7,8 +7,20 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
+/** Title: WebView - Android Studio Tutorial
+ * Author: Coding in Flow
+ * Date: 2017
+ * Code version: -
+ * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+ */
 public class webview_L3 extends AppCompatActivity {
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private WebView webview;
 
@@ -16,11 +28,20 @@ public class webview_L3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview__l3);
+
+        /** Title: WebView - Android Studio Tutorial
+         * Author: Coding in Flow
+         * Date: 2017
+         * Code version: -
+         * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+         */
         webview = (WebView)findViewById(R.id.webview_L3);
         webview.setWebViewClient(new WebViewClient());
         webview.loadUrl("https://www.healthline.com/human-body-maps/flexor-retinaculum-of-the-hand#1");
 
     }
+
+
 
 
     @Override

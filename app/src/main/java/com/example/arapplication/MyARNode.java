@@ -24,11 +24,32 @@ import com.google.ar.sceneform.rendering.ViewRenderable;
 
 import java.util.concurrent.CompletableFuture;
 
+/** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
+
 public class MyARNode extends AnchorNode {
 
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
     private AugmentedImage image;
     private static CompletableFuture<ModelRenderable> modelRenderableCompletableFuture;
     private float hand_scale = 0.0f;
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     public MyARNode(Context context,int modelId)
     {
@@ -47,8 +68,22 @@ public class MyARNode extends AnchorNode {
 
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     public void setImage(AugmentedImage image) {
         this.image = image;
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
         if (!modelRenderableCompletableFuture.isDone())
         {
             CompletableFuture.allOf(modelRenderableCompletableFuture)
@@ -76,7 +111,12 @@ public class MyARNode extends AnchorNode {
 
 
 
-
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     public AugmentedImage getImage() {
         return image;

@@ -10,12 +10,26 @@ import android.widget.Toast;
 
 public class webview_b2 extends AppCompatActivity {
 
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_b2);
+
+        /** Title: WebView - Android Studio Tutorial
+         * Author: Coding in Flow
+         * Date: 2017
+         * Code version: -
+         * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+         */
 
         webview = (WebView)findViewById(R.id.webview_b2);
         webview.setWebViewClient(new WebViewClient());

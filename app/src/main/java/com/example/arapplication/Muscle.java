@@ -44,6 +44,7 @@ import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.rendering.Material;
 import com.google.ar.sceneform.rendering.MaterialFactory;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import androidx.core.content.FileProvider;
 
@@ -52,9 +53,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+/** Title: ARCore Augmented Images
+ * Author: Google Code labs
+ * Date: 2019
+ * Code version: 2.0
+ * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+ */
+
 public class Muscle extends AppCompatActivity {
 
     private Toolbar mainToolbar;
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     private ArFragment arFragment;
 
@@ -67,15 +82,36 @@ public class Muscle extends AppCompatActivity {
 
     private TextView thumb;
 
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
+
     private FloatingActionButton fab;
 
 
     ;
-
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
     private final Map augmentedImageMap = new HashMap<>();
+
+    /** Title: Get started with Google Analytics
+     * Author: Firebase
+     * Date: 2020
+     * Version: 2.0
+     * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+     */
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -83,12 +119,24 @@ public class Muscle extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
+
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
         Index = findViewById(R.id.index);
 
-
+        /** Title: Introduction to Sceneform
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: -
+         * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+         */
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +147,11 @@ public class Muscle extends AppCompatActivity {
         });
 
 
-
-
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+         */
 
 
         mainToolbar = findViewById(R.id.main_toolbar);
@@ -108,7 +159,7 @@ public class Muscle extends AppCompatActivity {
         setSupportActionBar(mainToolbar);
 
         getSupportActionBar().setTitle("Anatomy Insight - Muscle");
-        
+
 
         middle = findViewById(R.id.middle);
 
@@ -136,11 +187,37 @@ public class Muscle extends AppCompatActivity {
             }
         });
 
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
+
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
+
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
 
 
 
     }
+
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
     private String generateFilename() {
         String date =
@@ -148,6 +225,13 @@ public class Muscle extends AppCompatActivity {
         return Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
 
     private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
@@ -166,6 +250,13 @@ public class Muscle extends AppCompatActivity {
             throw new IOException("Failed to save bitmap to disk", ex);
         }
     }
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
 
     private void takePhoto() {
@@ -216,6 +307,13 @@ public class Muscle extends AppCompatActivity {
     }
 
 
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private void openWebViewM3Activity() {
         Intent loginIntent = new Intent(Muscle.this, webview_m3.class);
         startActivity(loginIntent);
@@ -224,6 +322,13 @@ public class Muscle extends AppCompatActivity {
         Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private void openWebViewM2Activity() {
         Intent loginIntent = new Intent(Muscle.this, webview_m2.class);
         startActivity(loginIntent);
@@ -231,6 +336,13 @@ public class Muscle extends AppCompatActivity {
 
         Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private void openWebViewM1Activity() {
 
@@ -241,6 +353,13 @@ public class Muscle extends AppCompatActivity {
         Toast.makeText(Muscle.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -248,6 +367,15 @@ public class Muscle extends AppCompatActivity {
             fitToScanView.setVisibility(View.VISIBLE);
 
         }
+
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics.setCurrentScreen(this, getClass().getSimpleName(), "Muscle Screen");
 
 
     }
@@ -257,6 +385,13 @@ public class Muscle extends AppCompatActivity {
      * Registered with the Sceneform Scene object, this method is called at the start of each frame.
      *
      * @param frameTime - time since last frame.
+     */
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
      */
     @SuppressLint("RestrictedApi")
     private void onUpdateFrame(FrameTime frameTime) {
@@ -273,6 +408,13 @@ public class Muscle extends AppCompatActivity {
 
             return;
         }
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         Collection<AugmentedImage> updatedAugmentedImages =
                 frame.getUpdatedTrackables(AugmentedImage.class);
@@ -297,12 +439,26 @@ public class Muscle extends AppCompatActivity {
                     thumb.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.VISIBLE);
 
+                    /** Title: ARCore Augmented Images
+                     * Author: Google Code labs
+                     * Date: 2019
+                     * Code version: 2.0
+                     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+                     */
+
 
                     // Create a new anchor for newly found images.
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
                         MyARNode node = new MyARNode(this, R.raw.hand);
                         node.setImage(augmentedImage);
-                        node.setLight(Light.builder(Light.Type.FOCUSED_SPOTLIGHT).setColor(new Color(0,0,255)).setShadowCastingEnabled(true).build());
+
+                        /** Title: LightingActivity
+                         * Author: Google Code labs
+                         * Date: 2018
+                         * Code version: 2.0
+                         * Availability: https://www.codota.com/web/assistant/code/rs/5c7c4ba12ef5570001db46ab#L209
+                         */
+                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,245,244)).build());
 
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);

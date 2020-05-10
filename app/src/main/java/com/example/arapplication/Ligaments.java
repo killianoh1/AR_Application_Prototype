@@ -29,6 +29,7 @@ import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.Light;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -43,6 +44,21 @@ import java.util.Map;
 
 public class Ligaments extends AppCompatActivity {
 
+    /** Title: Get started with Google Analytics
+     * Author: Firebase
+     * Date: 2020
+     * Version: 2.0
+     * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+     */
+
+    private FirebaseAnalytics mFirebaseAnalytics;
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
     private ArFragment arFragment;
     private ImageView fitToScanView;
 
@@ -50,20 +66,26 @@ public class Ligaments extends AppCompatActivity {
 
     private TextView middle;
 
-    private Color Blue = new Color(52, 195, 235);
-    private static final float LIGHT_FALLOFF_RADIUS = .5f;
-
-
-
 
 
     private TextView thumb;
     private Toolbar mainToolbar;
 
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
+
     private FloatingActionButton fab;
 
-
-
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
 
     // Augmented image and its associated center pose anchor, keyed by the augmented image in
     // the database.
@@ -71,12 +93,26 @@ public class Ligaments extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ligaments);
+
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         fitToScanView = findViewById(R.id.image_view_fit_to_scan);
@@ -87,11 +123,25 @@ public class Ligaments extends AppCompatActivity {
 
         thumb = findViewById(R.id.thumb);
 
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+         */
+
+
         mainToolbar = findViewById(R.id.main_toolbar);
 
         setSupportActionBar(mainToolbar);
 
         getSupportActionBar().setTitle("Anatomy Insight - Ligaments");
+
+        /** Title: Introduction to Sceneform
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: -
+         * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+         */
 
 
         fab = findViewById(R.id.fab);
@@ -128,7 +178,12 @@ public class Ligaments extends AppCompatActivity {
 
 
 
-
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
@@ -137,6 +192,13 @@ public class Ligaments extends AppCompatActivity {
     }
 
 
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
+
     private String generateFilename() {
         String date =
                 new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
@@ -144,6 +206,12 @@ public class Ligaments extends AppCompatActivity {
                 Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
 
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
     private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
 
@@ -161,6 +229,13 @@ public class Ligaments extends AppCompatActivity {
             throw new IOException("Failed to save bitmap to disk", ex);
         }
     }
+
+    /** Title: Introduction to Sceneform
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: -
+     * Availability: https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..io2018#15
+     */
 
 
     private void takePhoto() {
@@ -210,7 +285,12 @@ public class Ligaments extends AppCompatActivity {
         }, new Handler(handlerThread.getLooper()));
     }
 
-
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
 
     private void openWebViewL1Activity() {
 
@@ -222,6 +302,13 @@ public class Ligaments extends AppCompatActivity {
 
     }
 
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private void openWebViewL2Activity() {
 
         Intent loginIntent = new Intent(Ligaments.this, webview_L2.class);
@@ -232,6 +319,14 @@ public class Ligaments extends AppCompatActivity {
 
     }
 
+
+    /** Title: WebView - Android Studio Tutorial
+     * Author: Coding in Flow
+     * Date: 2017
+     * Code version: -
+     * Availability: https://www.youtube.com/watch?v=TUXui5ItBkM
+     */
+
     private void openWebViewL3Activity() {
 
         Intent loginIntent = new Intent(Ligaments.this, webview_L3.class);
@@ -241,14 +336,29 @@ public class Ligaments extends AppCompatActivity {
         Toast.makeText(Ligaments.this, "Label has been selected", Toast.LENGTH_LONG).show();
     }
 
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
         if (augmentedImageMap.isEmpty()) {
             fitToScanView.setVisibility(View.VISIBLE);
+
         }
 
+        /** Title: Get started with Google Analytics
+         * Author: Firebase
+         * Date: 2020
+         * Version: 2.0
+         * Availability: https://firebase.google.com/docs/analytics/get-started?platform=android
+         */
 
+        mFirebaseAnalytics.setCurrentScreen(this, getClass().getSimpleName(), "Ligaments Screen");
 
     }
 
@@ -258,6 +368,13 @@ public class Ligaments extends AppCompatActivity {
      * Registered with the Sceneform Scene object, this method is called at the start of each frame.
      *
      * @param frameTime - time since last frame.
+     */
+
+    /** Title: ARCore Augmented Images
+     * Author: Google Code labs
+     * Date: 2019
+     * Code version: 2.0
+     * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
      */
     @SuppressLint("RestrictedApi")
     private void onUpdateFrame(FrameTime frameTime) {
@@ -274,6 +391,13 @@ public class Ligaments extends AppCompatActivity {
 
             return;
         }
+
+        /** Title: ARCore Augmented Images
+         * Author: Google Code labs
+         * Date: 2019
+         * Code version: 2.0
+         * Availability: https://github.com/googlecodelabs/arcore-augmentedimage-intro
+         */
 
         Collection<AugmentedImage> updatedAugmentedImages =
                 frame.getUpdatedTrackables(AugmentedImage.class);
@@ -305,15 +429,13 @@ public class Ligaments extends AppCompatActivity {
                         MyARNodeL node = new MyARNodeL(this,R.raw.hand);
                         node.setImage(augmentedImage);
 
-                        Light.Builder lightBuilder =
-                                Light.builder(Light.Type.POINT)
-                                .setFalloffRadius(LIGHT_FALLOFF_RADIUS)
-                                .setShadowCastingEnabled(false);
-                        lightBuilder.setColor(Blue);
-                        Light light = lightBuilder.build();
-
-                        node.setLight(light);
-
+                        /** Title: LightingActivity
+                         * Author: Google Code labs
+                         * Date: 2018
+                         * Code version: 2.0
+                         * Availability: https://www.codota.com/web/assistant/code/rs/5c7c4ba12ef5570001db46ab#L209
+                         */
+                        node.setLight(Light.builder(Light.Type.POINT).setColor(new Color(0,245,244)).build());
                         augmentedImageMap.put(augmentedImage, node);
                         arFragment.getArSceneView().getScene().addChild(node);
 

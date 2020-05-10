@@ -7,7 +7,13 @@
     android:background="@color/colorPrimary"
     tools:context=".RegisterActivity">
 
-
+<!--
+ /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 4
+         * Author: Akshaye JH
+         * Date: 2018
+         * Availability: https://www.youtube.com/watch?v=WN4Xec0bNmo&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=4
+         */
+-->
     <EditText
         android:id="@+id/reg_email"
         android:layout_width="0dp"
@@ -50,12 +56,12 @@
 
     <Button
         android:id="@+id/reg_btn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/colorAccent"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="@string/reg_btn_text"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -66,22 +72,22 @@
 
     <Button
         android:id="@+id/login_reg_btn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="60dp"
         android:backgroundTint="@android:color/white"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="@string/reg_login_text"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_btn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <ProgressBar
         android:id="@+id/reg_progress"

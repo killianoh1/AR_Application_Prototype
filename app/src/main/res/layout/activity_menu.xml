@@ -7,6 +7,14 @@
     android:background="@color/colorPrimary"
     tools:context=".MenuApp">
 
+    <!--
+        /** Title: Android Blog App 2018 - Android Studio Firebase Tutorials - Part 7
+     * Author: Akshaye JH
+     * Date: 2018
+     * Availability: https://www.youtube.com/watch?v=sDf7NKROoDM&list=PLGCjwl1RrtcR4ptHvrc_PQIxDBB5MGiJA&index=7
+     */
+    -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
@@ -16,6 +24,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/candal"
+        android:text="@string/menu_text"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/musclesBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/main_toolbar" />
+
+    <TextView
+        android:id="@+id/menu_guide_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/candal"
+        android:text="@string/menu_guide_text"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTransparentHalf"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ligamentsBtn" />
 
 
     <Button
@@ -54,7 +93,7 @@
         android:id="@+id/guideBtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="@color/colorAccent"
         android:backgroundTint="@color/whiteTransparentHalf"
         android:text="@string/guide_Btn"
